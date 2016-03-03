@@ -9,10 +9,13 @@ CREATE OR REPLACE VIEW Nb_h_matiere AS
 	FROM Matiere;
 
 CREATE OR REPLACE VIEW Liste_etu_matiere AS
-	SELECT DISTINCT g.annee, rm.idResp_CM, mt.idresp_TD, mt.idResp_TP, g.matiere, g.groupe, g.noEtu, e.nomEtu, e.preEtu
+	SELECT g.annee, rm.idResp_CM, mt.idresp_TD, mt.idResp_TP, g.matiere, g.groupe, g.noEtu, e.nomEtu, e.preEtu
 	FROM ResponsableMatiere rm , MatiereTdTp mt, GroupeEtu g, Etudiant e
 	WHERE g.annee = rm.annee and g.annee = mt.annee 
 	AND g.matiere = rm.matiere and g.matiere = mt.matiere
 	AND g.noEtu = e.noEtu
   	ORDER BY g.annee ASC, rm.idResp_CM ASC, mt.idresp_TD ASC, mt.idResp_TP ASC, g.matiere ASC, g.groupe ASC, e.nomEtu ASC;
   
+CREATE OR REPLACE VIEW Bulletins_etu AS
+	SELECT noEtu, nomEtu, preEtu, matiere, moyenneMat, avg(moyenneMat) as MoyenneMatPromo, moyenneSem, avg(moyenneSem) as MoyenneSemPromo
+	FROM 
