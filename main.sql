@@ -1,6 +1,6 @@
 @drop
 @tables
+-- @trigger
 @insert
 @vues
--- @trigger
 -- @procedure
