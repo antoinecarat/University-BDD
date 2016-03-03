@@ -95,5 +95,3 @@ CREATE TABLE GroupeEtu(
 	CONSTRAINT pk_GroupeEtu PRIMARY KEY (noEtu, groupe, matiere, annee),
 	CONSTRAINT fk_noEtu FOREIGN KEY (noEtu) REFERENCES Etudiant(noEtu)
 	);
-
-

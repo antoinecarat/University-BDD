@@ -8,8 +8,6 @@ Database representing University of Nantes behaviour.
 
 ###Vues : 
 - [ ] aperçu des notes pour chaque étudiant 
-- [ ] aperçu des cours pour les étudiants 
-- [ ] aperçu des cours pour les profs 
 - [x] aperçu de la liste des élèves pour un cours d’un prof
 - [x] aperçu du nombre d’heures d’un cours
 
