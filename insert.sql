@@ -39,11 +39,18 @@ insert into MatiereTdTp values('X6I0010', 2015, '601B', 'rThoraval', 'rThoraval'
 insert into MatiereTdTp values('X5I0030', 2015, '502C', 'eMonfroy', 'lJing');
 insert into MatiereTdTp values('X6IM020', 2014, '609G', 'aLarhlimi', 'aLarhlimi');
 
-insert into GroupeCours values('601B', 6, 'L3-Info', 'Informatique');
-insert into GroupeCours values('502D', 5, 'L3-Info', 'Informatique');
 insert into GroupeCours values('501A', 5, 'L3-Info', 'Informatique');
+insert into GroupeCours values('501B', 5, 'L3-Info', 'Informatique');
 insert into GroupeCours values('502C', 5, 'L3-Info', 'Informatique');
+insert into GroupeCours values('502D', 5, 'L3-Info', 'Informatique');
+insert into GroupeCours values('601A', 6, 'L3-Info', 'Informatique');
+insert into GroupeCours values('601B', 6, 'L3-Info', 'Informatique');
+insert into GroupeCours values('602C', 6, 'L3-Info', 'Informatique');
+insert into GroupeCours values('602D', 6, 'L3-Info', 'Informatique');
+insert into GroupeCours values('608E', 6, 'L3-Miage', 'Informatique');
+insert into GroupeCours values('608F', 6, 'L3-Miage', 'Informatique');
 insert into GroupeCours values('609G', 6, 'L3-Miage', 'Informatique');
+insert into GroupeCours values('609H', 6, 'L3-Miage', 'Informatique');
 
 insert into GroupeEtu values('112771c', '601B', 'X6I0050', 2015);
 insert into GroupeEtu values('129010d', '601B', 'X6I0050', 2015);

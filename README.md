@@ -4,27 +4,28 @@ Database representing University of Nantes behaviour.
 ## To-Do List
 
 ###Triggers : 
-- [x] mettre à jour les moyennes en fonction des notes de cc et exam à l'insertion et à la mise à jour
-- [ ] vérifier que les notes soit comprises entre 0 et 20 à l'insertion et à la mise à jour
+- [x] mettre à jour les moyennes en fonction des notes de cc et exam *à l'insertion et à la mise à jour*
+- [ ] vérifier que les notes soit comprises entre 0 et 20 *à l'insertion et à la mise à jour*
+- [ ] affectation des matieres pour un étudiant en fonction du groupe *à l'insertion et à la mise à jour*
 
 ###Vues : 
-- [ ] aperçu des notes pour chaque étudiant 
+- [x] aperçu des notes pour chaque étudiant 
 - [x] aperçu de la liste des élèves pour un cours d’un prof
 - [x] aperçu du nombre d’heures d’un cours
-- [ ] aperçu du bulletin de chaque étudiant
+- [x] aperçu du bulletin de chaque étudiant
 
 ###Fonctions / Procédure :
-- [ ] insertion d’un étudiant
+- [ ] insertion d’un étudiant (noEtu, nom, prenom, groupe)
 - [ ] insertion d'une noteCC / noteExam
-- [ ] bulletin de l’étudiant / avec moyenne / reporting SQL/PLUS / annuel et semestriel
+- [ ] bulletin annuel / semestriel de l’étudiant avec moyenne (reporting SQLPlus ?)
 - [ ] calcul la moyenne du semestre d'un étudiant
 
 ### Rôles/Droits : 
-- [ ] Admin : Il peut tout faire
-- [ ] Prof :
-  - [ ] insérer des notes dans une matière ou l'on est responsable (CC, TD ou TP) -> Séparation des copies pour les corrigés
+- [ ] Univ-Admin : Il peut tout faire
+- [ ] Univ-Enseignant :
+  - [ ] insérer des notes dans une matière ou l'on est responsable (CC, TD ou TP) (Séparation des copies pour les corrigés)
   - [ ] consultation des élèves inscrit à un cours dont on est responsable (CC, TD ou TP)
-- [ ] Etudiant :
+- [ ] Univ-Etudiant :
   - [ ] consultation des cours ou l'on est inscrit
   - [ ] consultation des notes
 
