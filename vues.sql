@@ -11,4 +11,4 @@ CREATE OR REPLACE VIEW Liste_etu_matiere AS
 	FROM ResponsableMatiere rm , MatiereTdTp mt, GroupeEtu g
 	WHERE g.annee = rm.annee and g.annee = mt.annee 
 	AND g.matiere = rm.matiere and g.matiere = mt.matiere
-  	ORDER BY g.annee ASC;
+  	ORDER BY g.annee ASC, rm.idResp_CM ASC, mt.idresp_TD ASC, mt.idResp_TP ASC, g.matiere ASC, g.groupe ASC, g.noEtu ASC;
