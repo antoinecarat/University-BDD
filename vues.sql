@@ -7,6 +7,8 @@ CREATE OR REPLACE VIEW Nb_h_matiere AS
 	FROM Matiere;
 
 CREATE OR REPLACE VIEW Liste_etu_matiere AS
-	SELECT idResp_CM as Enseignant, matiere, groupe, noEtu
-	FROM ResponsableMatiere, MatiereTdTp, GroupeEtu
-	WHERE idResp_CM = idResp_TD AND idResp_ = idResp_TP 
+	SELECT DISTINCT g.annee, rm.idResp_CM, mt.idresp_TD, mt.idResp_TP, g.matiere, g.groupe, g.noEtu
+	FROM ResponsableMatiere rm , MatiereTdTp mt, GroupeEtu g
+	WHERE g.annee = rm.annee and g.annee = mt.annee 
+	AND g.matiere = rm.matiere and g.matiere = mt.matiere
+  	ORDER BY g.annee ASC;
