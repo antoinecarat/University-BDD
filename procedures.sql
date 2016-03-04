@@ -49,14 +49,15 @@ create or replace function calcul_moyenneSem(
 	CURSOR li IS select moyenneMat, coeffMat
 				from ((NoteEtu NATURAL JOIN NoteMatiere) NATURAL JOIN Matiere) 
 				where noEtu = noEtudiant and SUBSTR(matiere, 2, 1) = semestre_etu;
-	calcul number(4,2);
-	sum_coeff number(4,2);
+	calcul number(4,2) := 0;
+	sum_coeff number(4,2):= 0;
 begin
-		for ligne IN li LOOP
-			calcul := calcul + (ligne.moyenneMat * ligne.coeffMat);
-			sum_coeff := sum_coeff + ligne.coeffMat;
- 		END LOOP;	
- 		calcul := (calcul / sum_coeff);
- 		return calcul;
+	for ligne IN li LOOP
+		calcul := calcul + (ligne.moyenneMat * ligne.coeffMat);
+		sum_coeff := sum_coeff + ligne.coeffMat;
+	END LOOP;	
+		calcul := (calcul / sum_coeff);
+		return calcul;
 end;
 /
+
