@@ -24,24 +24,15 @@ BEGIN
 END;
 /
 
-CREATE OR REPLACE TRIGGER verifNotesIns AFTER INSERT ON NoteEtu 
+CREATE OR REPLACE TRIGGER verifNotes AFTER INSERT OR UPDATE ON NoteEtu 
 FOR EACH ROW 
+Declare
+	note_non_valide EXCEPTION;
 BEGIN
-	if (:new.noteCC BETWEEN 0 and 20) or (:new.noteExam  BETWEEN 0 and 20) then
-		INSERT into NoteMatiere values (:new.noteExam, :new.noteCC, moy );
+	if (:new.noteCC NOT BETWEEN 0 and 20) or (:new.noteExam NOT BETWEEN 0 and 20) then
+		RAISE note_non_valide;
 	end if;
+	EXCEPTION
+		WHEN note_non_valide THEN RAISE_APPLICATION_ERROR (-20001, 'La/Les notes ne sont pas valides(comprises entre 0 et 20)');
 END;
 /
-
-
-
--- CREATE OR REPLACE TRIGGER verifNotesUp AFTER UPDATE ON NoteEtu 
--- FOR EACH ROW 
--- BEGIN
--- 	if (:new.noteCC BETWEEN 0 and 20) or (:new.noteExam  BETWEEN 0 and 20) then
--- 		INSERT into NoteMatiere values (:new.noteExam, :new.noteCC, moy );
--- 	end if;
--- END;
--- /
-
-show errors;
