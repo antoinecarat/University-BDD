@@ -6,7 +6,7 @@ create or replace procedure insertEtudiant(
 	annee GroupeEtu.annee%type) as
 begin
 	insert into Etudiant values (noEtu, nomEtu, preEtu);
-	insert into GroupeEtu values (noEtu, roupe, null, annee);
+	insert into GroupeEtu values (noEtu, groupe, null, annee);
 end;
 /
 
@@ -36,3 +36,33 @@ begin
 	insert into TP values(idResp_TP, nomResp_TP, preResp_TP);
 end;
 /
+
+create or replace function calcul_moyenneSem(
+	noEtudiant ResultatEtudiant.noEtu%type,
+	semestre_etu ResultatEtudiant.semestre%type) as
+begin
+	DECLARE
+		CURSOR li IS select moyenneMat, coeffMat
+					from ((NoteEtu NATURAL JOIN NoteMatiere) NATURAL JOIN Matiere) 
+					where noEtu = noEtudiant and SUBSTRING(matiere, 2, 1) = semestre_etu;
+		calcul number(4,2);
+		sum_coeff number(4,2);
+	begin
+		for ligne IN li LOOP
+			calcul := calcul + li.moyenneMat * li.coeffMat;
+			sum_coeff := sum_coeff + li.coeffMat;
+ 		END LOOP;	
+ 		calcul := calcul / sum_coeff;
+ 		update ResultatEtudiant set moyenneSem = calcul where noEtu = noEtudiant;
+ 	end;
+end;
+/
+
+
+
+
+
+
+
+
+
