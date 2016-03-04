@@ -7,7 +7,7 @@ Database representing University of Nantes behaviour.
 - [x] mettre à jour les moyennes en fonction des notes de cc et exam *à l'insertion et à la mise à jour*
 - [ ] vérifier que les notes soit comprises entre 0 et 20 *à l'insertion et à la mise à jour*
 - [ ] affectation des matieres pour un étudiant en fonction du groupe *à l'insertion et à la mise à jour*
-- [ ] vérifier que le prof qui entre les notes est bien responsable de la matière * à l'insertion et à la mise à jour*
+- [ ] vérifier que le prof qui entre les notes est bien responsable de la matière *à l'insertion et à la mise à jour*
 
 ###Vues : 
 - [x] aperçu des notes pour chaque étudiant 
