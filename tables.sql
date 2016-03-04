@@ -83,8 +83,7 @@ CREATE TABLE NoteEtu(
 	matiere varchar2(10),
 	noteExam number(4,2),
 	noteCC number(4,2),
-	CONSTRAINT pk_NoteEtu PRIMARY KEY (noEtu, annee, matiere),
-	CONSTRAINT fk_noteExam FOREIGN KEY (noteExam,noteCC) REFERENCES NoteMatiere(noteExam,noteCC)
+	CONSTRAINT pk_NoteEtu PRIMARY KEY (noEtu, annee, matiere)
 	);
 
 CREATE TABLE GroupeEtu(
