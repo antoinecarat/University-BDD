@@ -16,7 +16,8 @@ Database representing University of Nantes behaviour.
 - [ ] aperçu du bulletin de chaque étudiant
 
 ###Fonctions / Procédure :
-- [ ] insertion d’un étudiant (noEtu, nom, prenom, groupe)
+- [x] insertion d’un étudiant
+- [x] insertion d'un enseignant (CC, TD ou TP)
 - [ ] insertion d'une noteCC / noteExam
 - [ ] bulletin annuel / semestriel de l’étudiant avec moyenne (reporting SQLPlus ?)
 - [x] calcul la moyenne du semestre d'un étudiant
