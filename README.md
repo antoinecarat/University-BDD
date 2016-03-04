@@ -3,6 +3,9 @@ Database representing University of Nantes behaviour.
 
 ## To-Do List
 
+###General :
+- [ ] faire un fichier drop par type (procedure, table, trigger, ...)
+
 ###Triggers : 
 - [x] mettre à jour les moyennes en fonction des notes de cc et exam *à l'insertion et à la mise à jour*
 - [x] vérifier que les notes soit comprises entre 0 et 20 *à l'insertion et à la mise à jour*
