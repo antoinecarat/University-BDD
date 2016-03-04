@@ -1,4 +1,4 @@
-CREATE TRIGGER moyenneMatiereIns AFTER INSERT ON NoteEtu 
+CREATE OR REPLACE TRIGGER moyenneMatiereIns AFTER INSERT ON NoteEtu 
 FOR EACH ROW 
 Declare
 	moy number(4,2);
@@ -11,7 +11,7 @@ BEGIN
 END;
 /
 
-CREATE TRIGGER moyenneMatiereUp AFTER UPDATE ON NoteEtu 
+CREATE OR REPLACE TRIGGER moyenneMatiereUp AFTER UPDATE ON NoteEtu 
 FOR EACH ROW 
 Declare
 	moy number(4,2);
@@ -24,7 +24,7 @@ BEGIN
 END;
 /
 
-CREATE TRIGGER verifNotes AFTER INSERT ON NoteEtu 
+CREATE OR REPLACE TRIGGER verifNotesIns AFTER INSERT ON NoteEtu 
 FOR EACH ROW 
 BEGIN
 	if (:new.noteCC BETWEEN 0 and 20) or (:new.noteExam  BETWEEN 0 and 20) then
@@ -33,7 +33,7 @@ BEGIN
 END;
 /
 
-CREATE TRIGGER verifNotes AFTER UPDATE ON NoteEtu 
+CREATE OR REPLACE TRIGGER verifNotesUp AFTER UPDATE ON NoteEtu 
 FOR EACH ROW 
 BEGIN
 	if (:new.noteCC BETWEEN 0 and 20) or (:new.noteExam  BETWEEN 0 and 20) then
