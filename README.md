@@ -24,7 +24,7 @@ Database representing University of Nantes behaviour.
 - [ ] calcul de la moyenne de la promo sur une matiere
 - [ ] calcul de la moyenne de la promo pour le semestre
 
-### Rôles/Droits : 
+###Rôles/Droits : 
 - [x] Univ-Admin : Il peut tout faire
 - [x] Univ-Enseignant :
   - [x] insérer des notes dans une matière ou l'on est responsable (CC, TD ou TP) (Séparation des copies pour les corrigés)
