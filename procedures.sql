@@ -4,9 +4,12 @@ create or replace procedure insertEtudiant(
 	preEtu Etudiant.preEtu%type,
 	groupe GroupeEtu.groupe%type,
 	annee GroupeEtu.annee%type) as
+cursor listeMatiere is select matiere from MatiereTdTp where MatiereTdTp.groupe = groupe;
 begin
 	insert into Etudiant values (noEtu, nomEtu, preEtu);
-	insert into GroupeEtu values (noEtu, groupe, null, annee);
+	for courant in listeMatiere loop
+		insert into GroupeEtu values (noEtu, groupe, courant.matiere, annee);
+	end loop;
 end;
 /
 
