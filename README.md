@@ -24,13 +24,13 @@ Database representing University of Nantes behaviour.
 - [x] calcul de la moyenne de la promo pour le semestre
 
 ### Rôles/Droits : 
-- [ ] Univ-Admin : Il peut tout faire
-- [ ] Univ-Enseignant :
-  - [ ] insérer des notes dans une matière ou l'on est responsable (CC, TD ou TP) (Séparation des copies pour les corrigés)
-  - [ ] consultation des élèves inscrit à un cours dont on est responsable (CC, TD ou TP)
-- [ ] Univ-Etudiant :
-  - [ ] consultation des cours ou l'on est inscrit
-  - [ ] consultation des notes
+- [x] Univ-Admin : Il peut tout faire
+- [x] Univ-Enseignant :
+  - [x] insérer des notes dans une matière ou l'on est responsable (CC, TD ou TP) (Séparation des copies pour les corrigés)
+  - [x] consultation des élèves inscrit à un cours dont on est responsable (CC, TD ou TP)
+- [x] Univ-Etudiant :
+  - [x] consultation des cours ou l'on est inscrit
+  - [x] consultation des notes
 
 ###Index :
 - [ ] index sur les id responsables
