@@ -19,9 +19,9 @@ Database representing University of Nantes behaviour.
 - [ ] insertion d’un étudiant (noEtu, nom, prenom, groupe)
 - [ ] insertion d'une noteCC / noteExam
 - [ ] bulletin annuel / semestriel de l’étudiant avec moyenne (reporting SQLPlus ?)
-- [ ] calcul la moyenne du semestre d'un étudiant
+- [x] calcul la moyenne du semestre d'un étudiant
 - [ ] calcul de la moyenne de la promo sur une matiere
-- [x] calcul de la moyenne de la promo pour le semestre
+- [ ] calcul de la moyenne de la promo pour le semestre
 
 ### Rôles/Droits : 
 - [x] Univ-Admin : Il peut tout faire
