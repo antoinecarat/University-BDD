@@ -106,3 +106,21 @@ begin
 		return moy;
 end;
 /
+
+-- create or replace procedure bulletin_semestriel_etu(
+-- 	semestre_etu IN ResultatEtudiant.semestre%type,
+-- 	annee_etu IN ResultatEtudiant.annee%type,
+-- 	noEtudiant IN ResultatEtudiant.noEtu%type) as
+-- cursor bulletin is select * from bulletins_etu where noEtu = noEtudiant and semestre = semestre_etu and annee = annee_etu;
+-- v_filehandle utl_file.file_type;
+-- begin
+-- 	v_filehandle := utl_file.fopen('/comptes/E134727S/Documents/Semestre_6/','out.txt','w');--Opening a file
+--     utl_file.putf(v_filehandle,'Bulletin d un etudiant : fait le %s\n',SYSDATE);
+--     utl_file.new_line(v_filehandle);
+--     for ligne in bulletin loop
+--     	utl_file.putf(v_filehandle,'noEtu %s nom %s prenom %s\n',ligne.noEtu, ligne.nomEtu, ligne.preEtu);
+--     end loop;
+--     utl_file.put_line(v_filehandle,'***END OF REPORT***');
+--     UTL_FILE.fclose(v_filehandle);
+-- end;
+-- /
