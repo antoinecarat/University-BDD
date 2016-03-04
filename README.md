@@ -12,13 +12,15 @@ Database representing University of Nantes behaviour.
 - [x] aperçu des notes pour chaque étudiant 
 - [x] aperçu de la liste des élèves pour un cours d’un prof
 - [x] aperçu du nombre d’heures d’un cours
-- [x] aperçu du bulletin de chaque étudiant
+- [ ] aperçu du bulletin de chaque étudiant
 
 ###Fonctions / Procédure :
 - [ ] insertion d’un étudiant (noEtu, nom, prenom, groupe)
 - [ ] insertion d'une noteCC / noteExam
 - [ ] bulletin annuel / semestriel de l’étudiant avec moyenne (reporting SQLPlus ?)
 - [ ] calcul la moyenne du semestre d'un étudiant
+- [ ] calcul de la moyenne de la promo sur une matiere
+- [ ] calcul de la moyenne de la promo pour le semestre
 
 ### Rôles/Droits : 
 - [ ] Univ-Admin : Il peut tout faire

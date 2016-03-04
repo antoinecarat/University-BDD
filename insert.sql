@@ -58,6 +58,11 @@ insert into ResultatEtudiant values('112771c',5,2015,10.17);
 insert into ResultatEtudiant values('133501k',5,2015,10.7);
 insert into ResultatEtudiant values('133641M',5,2015,9.98);
 insert into ResultatEtudiant values('134727s',5,2015,10.46);
+insert into ResultatEtudiant values('133501k',6,2015,11.7);
+insert into ResultatEtudiant values('129010d',6,2015,14.5);
+insert into ResultatEtudiant values('112771c',6,2015,12.7);
+insert into ResultatEtudiant values('133641M',6,2015,13.7);
+insert into ResultatEtudiant values('134727s',6,2015,12.9);
 
 insert into GroupeEtu values('133501k', '501A', 'X5I0030', 2015);
 insert into GroupeEtu values('133641M', '501A', 'X5I0030', 2015);
@@ -71,14 +76,14 @@ insert into GroupeEtu values('133641M', '601B', 'X6I0010', 2015);
 insert into GroupeEtu values('134727s', '601B', 'X6I0010', 2015);
 
 insert into NoteEtu values('133501k', 2015, 'X5I0030', 14, 17);
-insert into NoteEtu values('133501k', 2015, 'X6I0010', 15, 16);
+insert into NoteEtu values('133501k', 2015, 'X6I0010', 16, 16);
 insert into NoteEtu values('129010d', 2015, 'X6I0050', 14, 18);
 insert into NoteEtu values('134727s', 2015, 'X6I0050', 11, 10);
 insert into NoteEtu values('133641M', 2015, 'X6I0050', 12, 17);
 insert into NoteEtu values('112771c', 2015, 'X6I0050', 14, 14);
 
 insert into NoteMatiere values(14, 17, 15.5);
-insert into NoteMatiere values(15, 16, 15.5);
+insert into NoteMatiere values(16, 16, 16);
 insert into NoteMatiere values(14, 18, 16);
 insert into NoteMatiere values(11, 10, 10.5);
 insert into NoteMatiere values(12, 17, 14.5);
