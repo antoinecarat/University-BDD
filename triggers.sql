@@ -23,3 +23,21 @@ BEGIN
 	end if;
 END;
 /
+
+CREATE TRIGGER verifNotes AFTER INSERT ON NoteEtu 
+FOR EACH ROW 
+BEGIN
+	if (:new.noteCC BETWEEN 0 and 20) or (:new.noteExam  BETWEEN 0 and 20) then
+		INSERT into NoteMatiere values (:new.noteExam, :new.noteCC, moy );
+	end if;
+END;
+/
+
+CREATE TRIGGER verifNotes AFTER UPDATE ON NoteEtu 
+FOR EACH ROW 
+BEGIN
+	if (:new.noteCC BETWEEN 0 and 20) or (:new.noteExam  BETWEEN 0 and 20) then
+		INSERT into NoteMatiere values (:new.noteExam, :new.noteCC, moy );
+	end if;
+END;
+/
