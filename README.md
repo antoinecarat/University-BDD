@@ -5,7 +5,7 @@ Database representing University of Nantes behaviour.
 
 ###Triggers : 
 - [x] mettre à jour les moyennes en fonction des notes de cc et exam *à l'insertion et à la mise à jour*
-- [ ] vérifier que les notes soit comprises entre 0 et 20 *à l'insertion et à la mise à jour*
+- [x] vérifier que les notes soit comprises entre 0 et 20 *à l'insertion et à la mise à jour*
 - [ ] affectation des matieres pour un étudiant en fonction du groupe *à l'insertion et à la mise à jour*
 - [ ] vérifier que le prof qui entre les notes est bien responsable de la matière *à l'insertion et à la mise à jour*
 
@@ -21,8 +21,8 @@ Database representing University of Nantes behaviour.
 - [ ] insertion d'une noteCC / noteExam
 - [ ] bulletin annuel / semestriel de l’étudiant avec moyenne (reporting SQLPlus ?)
 - [x] calcul la moyenne du semestre d'un étudiant
-- [ ] calcul de la moyenne de la promo sur une matiere
-- [ ] calcul de la moyenne de la promo pour le semestre
+- [x] calcul de la moyenne de la promo sur une matiere
+- [x] calcul de la moyenne de la promo sur un semestre
 
 ###Rôles/Droits : 
 - [x] Univ-Admin : Il peut tout faire
