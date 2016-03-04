@@ -37,25 +37,24 @@ begin
 end;
 /
 
-create or replace function calcul_moyenneSem(
-	noEtudiant ResultatEtudiant.noEtu%type,
-	semestre_etu ResultatEtudiant.semestre%type) as
-begin
-	DECLARE
-		CURSOR li IS select moyenneMat, coeffMat
-					from ((NoteEtu NATURAL JOIN NoteMatiere) NATURAL JOIN Matiere) 
-					where noEtu = noEtudiant and SUBSTRING(matiere, 2, 1) = semestre_etu;
-		calcul number(4,2);
-		sum_coeff number(4,2);
+DECLARE
+	CURSOR li IS select moyenneMat, coeffMat
+				from ((NoteEtu NATURAL JOIN NoteMatiere) NATURAL JOIN Matiere) 
+				where noEtu = noEtudiant and SUBSTRING(matiere, 2, 1) = semestre_etu;
+	calcul number(4,2);
+	sum_coeff number(4,2);
+function calcul_moyenneSem(
+	noEtudiant IN ResultatEtudiant.noEtu%type,
+	semestre_etu IN ResultatEtudiant.semestre%type
+	)
+	return number(4,2)
 	begin
 		for ligne IN li LOOP
 			calcul := calcul + li.moyenneMat * li.coeffMat;
 			sum_coeff := sum_coeff + li.coeffMat;
  		END LOOP;	
- 		calcul := calcul / sum_coeff;
- 		update ResultatEtudiant set moyenneSem = calcul where noEtu = noEtudiant;
- 	end;
-end;
+ 		return calcul := calcul / sum_coeff;
+end calcul_moyenneSem;
 /
 
 
