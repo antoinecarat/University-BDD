@@ -15,7 +15,7 @@ Database representing University of Nantes behaviour.
 - [x] aperçu des notes pour chaque étudiant 
 - [x] aperçu de la liste des élèves pour un cours d’un prof
 - [x] aperçu du nombre d’heures d’un cours
-- [ ] aperçu du bulletin de chaque étudiant
+- [x] aperçu du bulletin de chaque étudiant
 
 ###Fonctions / Procédure :
 - [ ] insertion d’un étudiant (affectation des matieres pour un étudiant en fonction du groupe)
