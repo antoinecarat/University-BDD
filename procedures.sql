@@ -13,7 +13,7 @@ end;
 create or replace procedure insertCM(
 	idResp_CM CM.idResp_CM%type,
 	nomResp_CM CM.nomResp_CM%type,
-	preResp_CM, CM.preResp_CM%type) as
+	preResp_CM CM.preResp_CM%type) as
 begin
 	insert into CM values(idResp_CM, nomResp_CM, preResp_CM);
 end;
@@ -22,7 +22,7 @@ end;
 create or replace procedure insertTD(
 	idResp_TD TD.idResp_TD%type,
 	nomResp_TD TD.nomResp_TD%type,
-	preResp_TD, TD.preResp_TD%type) as
+	preResp_TD TD.preResp_TD%type) as
 begin
 	insert into TD values(idResp_TD, nomResp_TD, preResp_TD);
 end;
@@ -31,7 +31,7 @@ end;
 create or replace procedure insertTP(
 	idResp_TP TP.idResp_TP%type,
 	nomResp_TP TP.nomResp_TP%type,
-	preResp_TP, TP.preResp_TP%type) as
+	preResp_TP TP.preResp_TP%type) as
 begin
 	insert into TP values(idResp_TP, nomResp_TP, preResp_TP);
 end;
@@ -56,8 +56,6 @@ function calcul_moyenneSem(
  		return calcul := calcul / sum_coeff;
 end calcul_moyenneSem;
 /
-
-
 
 
 
