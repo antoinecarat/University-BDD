@@ -124,3 +124,32 @@ end;
 --     UTL_FILE.fclose(v_filehandle);
 -- end;
 -- /
+
+create or replace procedure bulletin_semestriel_etu(
+	semestre_etu IN ResultatEtudiant.semestre%type,
+	annee_etu IN ResultatEtudiant.annee%type,
+	noEtudiant IN ResultatEtudiant.noEtu%type) as
+--cursor bulletin is select * from bulletins_etu where noEtu = noEtudiant and semestre = semestre_etu and annee = annee_etu;
+begin
+	SET ECHO OFF
+	SPOOL 'bulletin_' || noEtudiant.lst
+	SET ECHO OFF
+	SET FEEDBACK OFF
+	SET HEADING ON
+	SET PAGESIZE 100
+	ttitle col 6 'Bulletin de '|| noEtudiant skip 2
+	select * from bulletins_etu where noEtu = noEtudiant and semestre = semestre_etu and annee = annee_etu;
+	SPOOL OFF
+	SET ECHO ON
+end;
+/
+
+
+
+
+
+
+
+
+
+
