@@ -3,4 +3,4 @@
 @drop_vues
 --@drop_index
 @drop_tables
-@drop_roles
+--@drop_roles
