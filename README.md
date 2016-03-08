@@ -33,6 +33,9 @@ Database representing University of Nantes behaviour.
 - [x] Univ-Etudiant :
   - [x] consultation des cours ou l'on est inscrit
   - [x] consultation des notes
+-[ ] test
+ 
+
 
 ###Index :
 - [ ] index sur les id responsables
