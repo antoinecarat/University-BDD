@@ -3,6 +3,9 @@ Database representing University of Nantes behaviour.
 
 ## To-Do List
 
+###General :
+- [ ] corriger le main.sql pour que les dépendances entre procedures et vues ne soient plus problematiques
+
 ###Triggers : 
 - [x] mettre à jour les moyennes en fonction des notes de cc et exam *à l'insertion et à la mise à jour*
 - [x] vérifier que les notes soit comprises entre 0 et 20 *à l'insertion et à la mise à jour*
@@ -15,7 +18,7 @@ Database representing University of Nantes behaviour.
 - [x] aperçu du bulletin de chaque étudiant
 
 ###Fonctions / Procédure :
-- [ ] insertion d’un étudiant (affectation des matieres pour un étudiant en fonction du groupe)
+- [x] insertion d’un étudiant (affectation des matieres pour un étudiant en fonction du groupe)
 - [x] insertion d'un enseignant (CC, TD ou TP)
 - [ ] insertion d'une noteCC / noteExam (vérifier que le prof qui entre les notes est bien responsable de la matière)
 - [ ] bulletin annuel / semestriel de l’étudiant avec moyenne (reporting SQLPlus ?)
