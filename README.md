@@ -10,6 +10,7 @@ Database representing University of Nantes behaviour.
 - [x] mettre à jour les moyennes en fonction des notes de cc et exam *à l'insertion et à la mise à jour*
 - [x] vérifier que les notes soit comprises entre 0 et 20 *à l'insertion et à la mise à jour*
 - [x] mettre à jour les moyennes du semestre et des matières *Si c'est la note exam qui est entrée*
+- [ ] vérifier que l'étudiant est inscrit au cours pour lui rajouter une note
 
 ###Vues : 
 - [x] aperçu des notes pour chaque étudiant 

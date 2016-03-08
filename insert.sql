@@ -20,12 +20,10 @@ insert into Matiere values('X6IM020', 1, 13, 9, 15);
 insert into ResponsableMatiere values('X6I0050', 2015, 'pSerrano');
 insert into ResponsableMatiere values('X6I0010', 2015, 'rThoraval');
 insert into ResponsableMatiere values('X5I0030', 2015, 'fGoualard');
--- insert into ResponsableMatiere values('X6IM020', 2014, 'aLarhlimi');
 
 insert into MatiereTdTp values('X6I0050', 2015, '601B', 'pSerrano', 'dPiscetelli');
 insert into MatiereTdTp values('X6I0010', 2015, '601B', 'rThoraval', 'rThoraval');
 insert into MatiereTdTp values('X5I0030', 2015, '502C', 'eMonfroy', 'jLi');
--- insert into MatiereTdTp values('X6IM020', 2014, '609G', 'aLarhlimi', 'aLarhlimi');
 
 insert into GroupeCours values('501A', 5, 'L3-Info', 'Informatique');
 insert into GroupeCours values('501B', 5, 'L3-Info', 'Informatique');
@@ -35,10 +33,6 @@ insert into GroupeCours values('601A', 6, 'L3-Info', 'Informatique');
 insert into GroupeCours values('601B', 6, 'L3-Info', 'Informatique');
 insert into GroupeCours values('602C', 6, 'L3-Info', 'Informatique');
 insert into GroupeCours values('602D', 6, 'L3-Info', 'Informatique');
--- insert into GroupeCours values('608E', 6, 'L3-Miage', 'Informatique');
--- insert into GroupeCours values('608F', 6, 'L3-Miage', 'Informatique');
--- insert into GroupeCours values('609G', 6, 'L3-Miage', 'Informatique');
--- insert into GroupeCours values('609H', 6, 'L3-Miage', 'Informatique');
 
 EXEC insertEtudiant('129010d','Carat','Antoine','601B',2015);
 EXEC insertEtudiant('112771c','Turrado','Léo','601B',2015);
