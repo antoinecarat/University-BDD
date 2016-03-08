@@ -57,10 +57,17 @@ insert into ResultatEtudiant values('112771c',6,2015,12.7);
 insert into ResultatEtudiant values('133641M',6,2015,13.7);
 insert into ResultatEtudiant values('134727s',6,2015,12.9);
 
-insert into NoteEtu values('133501k', 2015, 'X5I0030', 14, 17);
-insert into NoteEtu values('133501k', 2015, 'X6I0010', 16, 16);
-insert into NoteEtu values('129010d', 2015, 'X6I0050', 14, 18);
-insert into NoteEtu values('134727s', 2015, 'X6I0050', 11, 10);
-insert into NoteEtu values('133641M', 2015, 'X6I0050', 12, 17);
-insert into NoteEtu values('112771c', 2015, 'X6I0050', 14, 14);
+
+EXEC insertNoteCC('133501k', 2015, 'X5I0030', 14);
+EXEC insertNoteExam('133501k', 2015, 'X5I0030', 17);
+EXEC insertNoteCC('133501k', 2015, 'X6I0010', 16);
+EXEC insertNoteExam('133501k', 2015, 'X6I0010', 16);
+EXEC insertNoteCC('129010d', 2015, 'X6I0050', 14);
+EXEC insertNoteExam('129010d', 2015, 'X6I0050', 18);
+EXEC insertNoteCC('134727s', 2015, 'X6I0050', 11);
+EXEC insertNoteExam('134727s', 2015, 'X6I0050', 10);
+EXEC insertNoteCC('133641M', 2015, 'X6I0050', 12);
+EXEC insertNoteExam('133641M', 2015, 'X6I0050', 17);
+EXEC insertNoteCC('112771c', 2015, 'X6I0050', 14);
+EXEC insertNoteExam('112771c', 2015, 'X6I0050', 14);
 

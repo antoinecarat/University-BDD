@@ -1,3 +1,8 @@
+-----------------------------------------------------
+-- 					PROCEDURES					   --
+-----------------------------------------------------
+
+
 create or replace procedure insertEtudiant(
 	noEtu Etudiant.noEtu%type,
 	nomEtu Etudiant.nomEtu%type,
@@ -36,6 +41,54 @@ begin
 	insert into TP values(CONCAT(LOWER(SUBSTR(preResp_TP,1,1)),nomResp_TP), nomResp_TP, preResp_TP);
 end;
 /
+
+create or replace procedure insertNoteCC(
+	noEtu Etudiant.noEtu%type,
+	annee NoteEtu.annee%type,
+	matiere NoteEtu.matiere%type,
+	note NoteEtu.noteCC%type) as
+begin
+	insert into NoteEtu (noEtu,annee,matiere,noteCC) values (noEtu, annee, matiere, note);
+end;
+/
+
+create or replace procedure updateNoteCC(
+	noEtu_u Etudiant.noEtu%type,
+	annee_u NoteEtu.annee%type,
+	matiere_u NoteEtu.matiere%type,
+	note_u NoteEtu.noteCC%type) as
+begin
+	UPDATE NoteEtu
+	SET noteCC = note 
+	WHERE noEtu=noEtu_u and annee=annee_u and matiere=matiere_u;
+end;
+/
+
+create or replace procedure insertNoteExam(
+	noEtu Etudiant.noEtu%type,
+	annee NoteEtu.annee%type,
+	matiere NoteEtu.matiere%type,
+	note NoteEtu.noteExam%type) as
+begin
+	insert into NoteEtu (noEtu,annee,matiere,noteExam) values (noEtu, annee, matiere, note);
+end;
+/
+
+create or replace procedure updateNoteExam(
+	noEtu_u Etudiant.noEtu%type,
+	annee_u NoteEtu.annee%type,
+	matiere_u NoteEtu.matiere%type,
+	note_u NoteEtu.noteExam%type) as
+begin
+	UPDATE NoteEtu
+	SET noteExam = note 
+	WHERE noEtu=noEtu_u and annee=annee_u and matiere=matiere_u;
+end;
+/
+-----------------------------------------------------
+-- 					FUNCTIONS					   --
+-----------------------------------------------------
+
 
 create or replace function calcul_moyenneSem(
 	noEtudiant IN ResultatEtudiant.noEtu%type,
