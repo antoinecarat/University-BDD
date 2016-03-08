@@ -21,7 +21,7 @@ Database representing University of Nantes behaviour.
 ###Fonctions / Procédure :
 - [x] insertion d’un étudiant (affectation des matieres pour un étudiant en fonction du groupe)
 - [x] insertion d'un enseignant (CC, TD ou TP)
-- [ ] insertion d'une noteCC / noteExam (vérifier que le prof qui entre les notes est bien responsable de la matière)
+- [x] insertion d'une noteCC / noteExam (vérifier que le prof qui entre les notes est bien responsable de la matière)
 - [x] bulletin annuel / semestriel de l’étudiant avec moyenne (reporting SQLPlus ?)
 - [x] calcul la moyenne du semestre d'un étudiant
 - [x] calcul de la moyenne de la promo sur une matiere

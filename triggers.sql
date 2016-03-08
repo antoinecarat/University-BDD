@@ -36,3 +36,16 @@ BEGIN
 		WHEN note_non_valide THEN RAISE_APPLICATION_ERROR (-20001, 'La/Les notes ne sont pas valides (comprises entre 0 et 20)');
 END;
 /
+
+CREATE OR REPLACE TRIGGER verifInscriptionEtuCours ON INSERT OR UPDATE ON NoteEtu
+FOR EACH ROW
+Declare
+	etudiant_non_inscrit EXCEPTION;
+BEGIN
+	IF (SELECT COUNT(*) FROM GroupeEtu WHERE :new.noEtu = GroupeEtu.noEtu) = 0 THEN
+		RAISE etudiant_non_inscrit;
+	END IF;
+	EXCEPTION
+		WHEN etudiant_non_inscrit THEN RAISE_APPLICATION_ERROR (-20002, 'L\'étudiant ne suit pas ce cours.');
+END;
+/

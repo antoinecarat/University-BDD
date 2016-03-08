@@ -43,46 +43,28 @@ end;
 /
 
 create or replace procedure insertNoteCC(
-	noEtu Etudiant.noEtu%type,
-	annee NoteEtu.annee%type,
-	matiere NoteEtu.matiere%type,
-	note NoteEtu.noteCC%type) as
-begin
-	insert into NoteEtu (noEtu,annee,matiere,noteCC) values (noEtu, annee, matiere, note);
-end;
-/
-
-create or replace procedure updateNoteCC(
 	noEtu_u Etudiant.noEtu%type,
 	annee_u NoteEtu.annee%type,
 	matiere_u NoteEtu.matiere%type,
-	note_u NoteEtu.noteCC%type) as
+	note NoteEtu.noteCC%type) as
 begin
-	UPDATE NoteEtu
-	SET noteCC = note 
-	WHERE noEtu=noEtu_u and annee=annee_u and matiere=matiere_u;
+	IF (SELECT count(*) FROM NoteEtu WHERE noEtu=noEtu_u and annee=annee_u and matiere=matiere_u) > 0 THEN 
+		UPDATE NoteEtu SET noteCC = note WHERE noEtu=noEtu_u and annee=annee_u and matiere=matiere_u;
+	ELSE
+		insert into NoteEtu (noEtu,annee,matiere,noteCC) values (noEtu_u, annee_u, matiere_u, note);
 end;
 /
 
 create or replace procedure insertNoteExam(
-	noEtu Etudiant.noEtu%type,
-	annee NoteEtu.annee%type,
-	matiere NoteEtu.matiere%type,
-	note NoteEtu.noteExam%type) as
-begin
-	insert into NoteEtu (noEtu,annee,matiere,noteExam) values (noEtu, annee, matiere, note);
-end;
-/
-
-create or replace procedure updateNoteExam(
 	noEtu_u Etudiant.noEtu%type,
 	annee_u NoteEtu.annee%type,
 	matiere_u NoteEtu.matiere%type,
-	note_u NoteEtu.noteExam%type) as
+	note NoteEtu.noteExam%type) as
 begin
-	UPDATE NoteEtu
-	SET noteExam = note 
-	WHERE noEtu=noEtu_u and annee=annee_u and matiere=matiere_u;
+	IF (SELECT count(*) FROM NoteEtu WHERE noEtu=noEtu_u and annee=annee_u and matiere=matiere_u) > 0 THEN 
+		UPDATE NoteEtu SET noteExam = note WHERE noEtu=noEtu_u and annee=annee_u and matiere=matiere_u;
+	ELSE
+		insert into NoteEtu (noEtu,annee,matiere,noteExam) values (noEtu_u, annee_u, matiere_u, note);
 end;
 /
 -----------------------------------------------------
