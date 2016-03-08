@@ -33,6 +33,6 @@ BEGIN
 		RAISE note_non_valide;
 	end if;
 	EXCEPTION
-		WHEN note_non_valide THEN RAISE_APPLICATION_ERROR (-20001, 'La/Les notes ne sont pas valides(comprises entre 0 et 20)');
+		WHEN note_non_valide THEN RAISE_APPLICATION_ERROR (-20001, 'La/Les notes ne sont pas valides (comprises entre 0 et 20)');
 END;
 /
