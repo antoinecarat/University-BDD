@@ -32,10 +32,7 @@ Database representing University of Nantes behaviour.
   - [x] consultation des élèves inscrit à un cours dont on est responsable (CC, TD ou TP)
 - [x] Univ-Etudiant :
   - [x] consultation des cours ou l'on est inscrit
-  - [x] consultation des notes
--[ ] test
- 
-
+  - [x] consultation des notesy
 
 ###Index :
 - [ ] index sur les id responsables
