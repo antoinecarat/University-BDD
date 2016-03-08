@@ -81,8 +81,8 @@ CREATE TABLE NoteEtu(
 	noEtu varchar2(7),
 	annee number(4),
 	matiere varchar2(10),
-	noteExam number(4,2),
 	noteCC number(4,2),
+	noteExam number(4,2),
 	CONSTRAINT pk_NoteEtu PRIMARY KEY (noEtu, annee, matiere)
 	);
 
