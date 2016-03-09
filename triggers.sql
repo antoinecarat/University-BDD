@@ -41,11 +41,13 @@ CREATE OR REPLACE TRIGGER verifInscriptionEtuCours BEFORE INSERT OR UPDATE ON No
 FOR EACH ROW
 Declare
 	etudiant_non_inscrit EXCEPTION;
+	nbLigne number;
 BEGIN
-	IF (SELECT COUNT(*) FROM GroupeEtu WHERE :new.noEtu = GroupeEtu.noEtu) = 0 THEN
+	SELECT COUNT(*) into nbLigne FROM GroupeEtu WHERE :new.noEtu = GroupeEtu.noEtu;
+	IF nbLigne = 0 THEN
 		RAISE etudiant_non_inscrit;
 	END IF;
 	EXCEPTION
-		WHEN etudiant_non_inscrit THEN RAISE_APPLICATION_ERROR (-20002, 'L\'étudiant ne suit pas ce cours.');
+		WHEN etudiant_non_inscrit THEN RAISE_APPLICATION_ERROR (-20002, 'L etudiant ne suit pas ce cours.');
 END;
 /
