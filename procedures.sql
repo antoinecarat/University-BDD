@@ -48,10 +48,11 @@ create or replace procedure insertNoteCC(
 	matiere_u NoteEtu.matiere%type,
 	note NoteEtu.noteCC%type) as
 begin
-	IF (SELECT count(*) FROM NoteEtu WHERE noEtu=noEtu_u and annee=annee_u and matiere=matiere_u) > 0 THEN 
+	IF ((SELECT count(*) FROM NoteEtu WHERE noEtu=noEtu_u and annee=annee_u and matiere=matiere_u) > 0) THEN 
 		UPDATE NoteEtu SET noteCC = note WHERE noEtu=noEtu_u and annee=annee_u and matiere=matiere_u;
 	ELSE
 		insert into NoteEtu (noEtu,annee,matiere,noteCC) values (noEtu_u, annee_u, matiere_u, note);
+	END IF;
 end;
 /
 
@@ -61,81 +62,11 @@ create or replace procedure insertNoteExam(
 	matiere_u NoteEtu.matiere%type,
 	note NoteEtu.noteExam%type) as
 begin
-	IF (SELECT count(*) FROM NoteEtu WHERE noEtu=noEtu_u and annee=annee_u and matiere=matiere_u) > 0 THEN 
+	IF ((SELECT count(*) FROM NoteEtu WHERE noEtu=noEtu_u and annee=annee_u and matiere=matiere_u) > 0) THEN 
 		UPDATE NoteEtu SET noteExam = note WHERE noEtu=noEtu_u and annee=annee_u and matiere=matiere_u;
 	ELSE
 		insert into NoteEtu (noEtu,annee,matiere,noteExam) values (noEtu_u, annee_u, matiere_u, note);
-end;
-/
------------------------------------------------------
--- 					FUNCTIONS					   --
------------------------------------------------------
-
-
-create or replace function calcul_moyenneSem(
-	noEtudiant IN ResultatEtudiant.noEtu%type,
-	semestre_etu IN ResultatEtudiant.semestre%type
-	)
-	return ResultatEtudiant.moyenneSem%type as
-
-	CURSOR li IS select moyenneMat, coeffMat
-				from ((NoteEtu NATURAL JOIN NoteMatiere) NATURAL JOIN Matiere) 
-				where noEtu = noEtudiant and SUBSTR(matiere, 2, 1) = semestre_etu;
-	calcul number(4,2) := 0;
-	sum_coeff number(4,2):= 0;
-begin
-	for ligne IN li LOOP
-		calcul := calcul + (ligne.moyenneMat * ligne.coeffMat);
-		sum_coeff := sum_coeff + ligne.coeffMat;
-	END LOOP;	
-		calcul := (calcul / sum_coeff);
-		return calcul;
-end;
-/
-
-create or replace function calcul_moyenneMatPromo(
-	matiere_etu IN NoteEtu.matiere%type,
-	annee_etu IN NoteEtu.annee%type
-	)
-	return NoteMatiere.moyenneMat%type as
-
-	CURSOR li IS (select moyenneMat
-				from Note_etu_globale
-				where matiere = matiere_etu and annee = annee_etu);
-	somme number(4,2) := 0;
-	moy number(4,2):= 0;
-	cmp number(6):=0;
-begin
-
-	for ligne IN li LOOP
-		somme := somme + ligne.moyenneMat;
-		cmp := cmp+1;
-	END LOOP;	
-		moy := (somme / cmp);
-		return moy;
-end;
-/
-
-create or replace function calcul_moyenneSemPromo(
-	semestre_etu IN ResultatEtudiant.semestre%type,
-	annee_etu IN ResultatEtudiant.annee%type
-	)
-	return ResultatEtudiant.moyenneSem%type as
-
-	CURSOR li IS (select moyenneSem
-				from ResultatEtudiant
-				where semestre = semestre_etu and annee = annee_etu);
-	somme number(4,2) := 0;
-	moy number(4,2):= 0;
-	cmp number(6):=0;
-begin
-
-	for ligne IN li LOOP
-		somme := somme + ligne.moyenneSem;
-		cmp := cmp+1;
-	END LOOP;
-		moy := (somme / cmp);
-		return moy;
+	END IF;
 end;
 /
 
@@ -157,38 +88,108 @@ end;
 -- end;
 -- /
 
-SET SERVEROUTPUT ON
-create or replace procedure bulletin_semestriel_etu(
-	semestre_etu  ResultatEtudiant.semestre%type,
-	annee_etu  ResultatEtudiant.annee%type,
-	noEtudiant  ResultatEtudiant.noEtu%type) as
-cursor bulletin is select * from bulletins_etu where noEtu = noEtudiant and semestre = semestre_etu and annee = annee_etu;
-begin
-	for ligne IN bulletin LOOP
-		dbms_output.put_line('annee | semestre | noEtudiant | nomEtu | prenomEtu | matiere | moyenneMat');
-		dbms_output.put_line(ligne.annee || ' | ' || ligne.semestre || ' | ' || ligne.noEtu || ' | ' || ligne.nomEtu || ' | ' || ligne.preEtu || ' | ' || ligne.matiere || ' | ' || ligne.moyenneMat);
-		dbms_output.put_line('moyenneMatPromo | moyenneSem | moyenneSemPromo');
-		dbms_output.put_line(ligne.moyenneMatPromo || ' | ' || ligne.moyenneSem || ' | ' || ligne.moyenneSemPromo);
-	end loop;
-end;
-/
+---------------------
 
-SET SERVEROUTPUT ON
-create or replace procedure bulletin_annuel_etu(
-	annee_etu  ResultatEtudiant.annee%type,
-	noEtudiant  ResultatEtudiant.noEtu%type) as
-cursor bulletin is select * from bulletins_etu where noEtu = noEtudiant and annee = annee_etu;
-begin
-	for ligne IN bulletin LOOP
-		dbms_output.put_line('annee | semestre | noEtudiant | nomEtu | prenomEtu | matiere | moyenneMat');
-		dbms_output.put_line(ligne.annee || ' | ' || ligne.semestre || ' | E' || ligne.noEtu || ' | ' || ligne.nomEtu || ' | ' || ligne.preEtu || ' | ' || ligne.matiere || ' | ' || ligne.moyenneMat);
-		dbms_output.put_line('moyenneMatPromo | moyenneSem | moyenneSemPromo');
-		dbms_output.put_line(ligne.moyenneMatPromo || ' | ' || ligne.moyenneSem || ' | ' || ligne.moyenneSemPromo);
-	end loop;
-end;
-/
+-- SET SERVEROUTPUT ON
+-- create or replace procedure bulletin_semestriel_etu(
+-- 	semestre_etu  ResultatEtudiant.semestre%type,
+-- 	annee_etu  ResultatEtudiant.annee%type,
+-- 	noEtudiant  ResultatEtudiant.noEtu%type) as
+-- cursor bulletin is select * from bulletins_etu where noEtu = noEtudiant and semestre = semestre_etu and annee = annee_etu;
+-- begin
+-- 	for ligne IN bulletin LOOP
+-- 		dbms_output.put_line('annee | semestre | noEtudiant | nomEtu | prenomEtu | matiere | moyenneMat');
+-- 		dbms_output.put_line(ligne.annee || ' | ' || ligne.semestre || ' | ' || ligne.noEtu || ' | ' || ligne.nomEtu || ' | ' || ligne.preEtu || ' | ' || ligne.matiere || ' | ' || ligne.moyenneMat);
+-- 		dbms_output.put_line('moyenneMatPromo | moyenneSem | moyenneSemPromo');
+-- 		dbms_output.put_line(ligne.moyenneMatPromo || ' | ' || ligne.moyenneSem || ' | ' || ligne.moyenneSemPromo);
+-- 	end loop;
+-- end;
+-- /
+
+-- SET SERVEROUTPUT ON
+-- create or replace procedure bulletin_annuel_etu(
+-- 	annee_etu  ResultatEtudiant.annee%type,
+-- 	noEtudiant  ResultatEtudiant.noEtu%type) as
+-- cursor bulletin is select * from bulletins_etu where noEtu = noEtudiant and annee = annee_etu;
+-- begin
+-- 	for ligne IN bulletin LOOP
+-- 		dbms_output.put_line('annee | semestre | noEtudiant | nomEtu | prenomEtu | matiere | moyenneMat');
+-- 		dbms_output.put_line(ligne.annee || ' | ' || ligne.semestre || ' | E' || ligne.noEtu || ' | ' || ligne.nomEtu || ' | ' || ligne.preEtu || ' | ' || ligne.matiere || ' | ' || ligne.moyenneMat);
+-- 		dbms_output.put_line('moyenneMatPromo | moyenneSem | moyenneSemPromo');
+-- 		dbms_output.put_line(ligne.moyenneMatPromo || ' | ' || ligne.moyenneSem || ' | ' || ligne.moyenneSemPromo);
+-- 	end loop;
+-- end;
+-- /
 
 
+-- -----------------------------------------------------
+-- -- 					FUNCTIONS					   --
+-- -----------------------------------------------------
 
 
+-- create or replace function calcul_moyenneSem(
+-- 	noEtudiant IN ResultatEtudiant.noEtu%type,
+-- 	semestre_etu IN ResultatEtudiant.semestre%type
+-- 	)
+-- 	return ResultatEtudiant.moyenneSem%type as
 
+-- 	CURSOR li IS select moyenneMat, coeffMat
+-- 				from ((NoteEtu NATURAL JOIN NoteMatiere) NATURAL JOIN Matiere) 
+-- 				where noEtu = noEtudiant and SUBSTR(matiere, 2, 1) = semestre_etu;
+-- 	calcul number(4,2) := 0;
+-- 	sum_coeff number(4,2):= 0;
+-- begin
+-- 	for ligne IN li LOOP
+-- 		calcul := calcul + (ligne.moyenneMat * ligne.coeffMat);
+-- 		sum_coeff := sum_coeff + ligne.coeffMat;
+-- 	END LOOP;	
+-- 		calcul := (calcul / sum_coeff);
+-- 		return calcul;
+-- end;
+-- /
+
+-- create or replace function calcul_moyenneMatPromo(
+-- 	matiere_etu IN NoteEtu.matiere%type,
+-- 	annee_etu IN NoteEtu.annee%type
+-- 	)
+-- 	return NoteMatiere.moyenneMat%type as
+
+-- 	CURSOR li IS (select moyenneMat
+-- 				from Note_etu_globale
+-- 				where matiere = matiere_etu and annee = annee_etu);
+-- 	somme number(4,2) := 0;
+-- 	moy number(4,2):= 0;
+-- 	cmp number(6):=0;
+-- begin
+
+-- 	for ligne IN li LOOP
+-- 		somme := somme + ligne.moyenneMat;
+-- 		cmp := cmp+1;
+-- 	END LOOP;	
+-- 		moy := (somme / cmp);
+-- 		return moy;
+-- end;
+-- /
+
+-- create or replace function calcul_moyenneSemPromo(
+-- 	semestre_etu IN ResultatEtudiant.semestre%type,
+-- 	annee_etu IN ResultatEtudiant.annee%type
+-- 	)
+-- 	return ResultatEtudiant.moyenneSem%type as
+
+-- 	CURSOR li IS (select moyenneSem
+-- 				from ResultatEtudiant
+-- 				where semestre = semestre_etu and annee = annee_etu);
+-- 	somme number(4,2) := 0;
+-- 	moy number(4,2):= 0;
+-- 	cmp number(6):=0;
+-- begin
+
+-- 	for ligne IN li LOOP
+-- 		somme := somme + ligne.moyenneSem;
+-- 		cmp := cmp+1;
+-- 	END LOOP;
+-- 		moy := (somme / cmp);
+-- 		return moy;
+-- end;
+-- /

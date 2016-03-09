@@ -7,9 +7,10 @@ Database representing University of Nantes behaviour.
 - [ ] corriger le main.sql pour que les dépendances entre procedures et vues ne soient plus problematiques
 
 ###Triggers : 
-- [x] mettre à jour les moyennes en fonction des notes de cc et exam (moyenne et moyenne Sem) *à l'insertion et à la mise à jour*
+- [x] mettre à jour les moyennes en fonction des notes de cc et exam *à l'insertion et à la mise à jour*
 - [x] vérifier que les notes soit comprises entre 0 et 20 *à l'insertion et à la mise à jour*
-- [x] vérifier que l'étudiant est inscrit au cours pour lui rajouter une note
+- [x] mettre à jour les moyennes du semestre et des matières *Si c'est la note exam qui est entrée*
+- [ ] vérifier que l'étudiant est inscrit au cours pour lui rajouter une note
 
 ###Vues : 
 - [x] aperçu des notes pour chaque étudiant 
@@ -20,10 +21,10 @@ Database representing University of Nantes behaviour.
 ###Fonctions / Procédure :
 - [x] insertion d’un étudiant (affectation des matieres pour un étudiant en fonction du groupe)
 - [x] insertion d'un enseignant (CC, TD ou TP)
-- [x] insertion d'une noteCC / noteExam (vérifier que le prof qui entre les notes est bien responsable de la matière)
+- [ ] insertion d'une noteCC / noteExam (vérifier que le prof qui entre les notes est bien responsable de la matière)
 - [x] bulletin annuel / semestriel de l’étudiant avec moyenne (reporting SQLPlus ?)
 - [x] calcul la moyenne du semestre d'un étudiant
-- [x] calcul de la moyenne de la promo sur une matiere
+- [x] calcul de la moyenne de la promo sur une .matiere
 - [x] calcul de la moyenne de la promo sur un semestre
 
 ###Rôles/Droits : 
