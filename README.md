@@ -5,6 +5,7 @@ Database representing University of Nantes behaviour.
 
 ###General :
 - [ ] corriger le main.sql pour que les dépendances entre procedures et vues ne soient plus problematiques
+- [ ] Prendre en compte le fait que certaine matiere n'ont pas d'exam (noteExam=NULL)
 
 ###Triggers : 
 - [x] mettre à jour les moyennes en fonction des notes de cc et exam *à l'insertion et à la mise à jour*
@@ -20,7 +21,7 @@ Database representing University of Nantes behaviour.
 ###Fonctions / Procédure :
 - [x] insertion d’un étudiant (affectation des matieres pour un étudiant en fonction du groupe)
 - [x] insertion d'un enseignant (CC, TD ou TP)
-- [ ] insertion d'une noteCC / noteExam (vérifier que le prof qui entre les notes est bien responsable de la matière)
+- [x] insertion d'une noteCC / noteExam
 - [x] bulletin annuel / semestriel de l’étudiant avec moyenne (reporting SQLPlus ?)
 - [x] calcul la moyenne du semestre d'un étudiant
 - [x] calcul de la moyenne de la promo sur une matiere
@@ -32,7 +33,7 @@ Database representing University of Nantes behaviour.
   - [x] consultation des élèves inscrit à un cours dont on est responsable (CC, TD ou TP)
 - [x] Univ-Etudiant :
   - [x] consultation des cours ou l'on est inscrit
-  - [x] consultation des notesy
+  - [x] consultation des notes
 
 ###Index :
 - [ ] index sur les id responsables
