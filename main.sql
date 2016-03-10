@@ -1,9 +1,9 @@
 @drop
 @tables
-@vues
 @procedures
-@vues_supp
+@vues
 @procedures_supp
+@vues_supp
 --@roles
 @triggers
 @insert

@@ -4,22 +4,21 @@
 
 
 create or replace procedure insertEtudiant(
-	noEtu Etudiant.noEtu%type,
+	noEtu_u Etudiant.noEtu%type,
 	nomEtu Etudiant.nomEtu%type,
 	preEtu Etudiant.preEtu%type,
-	groupe GroupeEtu.groupe%type,
+	groupe_u GroupeEtu.groupe%type,
 	annee GroupeEtu.annee%type) as
-cursor listeMatiere is select matiere from MatiereTdTp where MatiereTdTp.groupe = groupe;
+cursor listeMatiere is select matiere from MatiereTdTp where MatiereTdTp.groupe = groupe_u;
 nbLigne number;
 begin
-	SELECT count(*) into nbLigne FROM Etudiant WHERE Etudiant.noEtu=noEtu;
+	SELECT count(*) into nbLigne FROM Etudiant WHERE noEtu=noEtu_u;
 	IF nbLigne = 0 THEN
-		insert into Etudiant values (noEtu, nomEtu, preEtu);
-	ELSE
-		for courant in listeMatiere loop
-			insert into GroupeEtu values (noEtu, groupe, courant.matiere, annee);
-		end loop;
+		insert into Etudiant values (noEtu_u, nomEtu, preEtu);
 	END IF;
+	for courant in listeMatiere loop
+		insert into GroupeEtu values (noEtu_u, groupe_u, courant.matiere, annee);
+	end loop;
 end;
 /
 
@@ -53,12 +52,18 @@ create or replace procedure insertNoteCC(
 	matiere_u NoteEtu.matiere%type,
 	note NoteEtu.noteCC%type) as
 	nbLigne number;
+	noteE NoteEtu.noteExam%type;
 begin
 	SELECT count(*) into nbLigne FROM NoteEtu WHERE noEtu=noEtu_u and annee=annee_u and matiere=matiere_u;
 	IF nbLigne > 0 THEN 
-		UPDATE NoteEtu SET noteCC = note WHERE noEtu=noEtu_u and annee=annee_u and matiere=matiere_u;
+		SELECT noteExam into noteE FROM NoteEtu WHERE noEtu=noEtu_u and annee=annee_u and matiere=matiere_u;
+		IF (noteE IS NULL) THEN
+			UPDATE NoteEtu SET noteCC = note, noteExam = note WHERE noEtu=noEtu_u and annee=annee_u and matiere=matiere_u;
+		ELSE
+			UPDATE NoteEtu SET noteCC = note WHERE noEtu=noEtu_u and annee=annee_u and matiere=matiere_u;
+		END IF;
 	ELSE
-		insert into NoteEtu (noEtu,annee,matiere,noteCC) values (noEtu_u, annee_u, matiere_u, note);
+		insert into NoteEtu values (noEtu_u, annee_u, matiere_u, note, note);
 	END IF;
 end;
 /
@@ -69,15 +74,34 @@ create or replace procedure insertNoteExam(
 	matiere_u NoteEtu.matiere%type,
 	note NoteEtu.noteExam%type) as
 	nbLigne number;
+	noteC NoteEtu.noteCC%type;
 begin
 	SELECT count(*) into nbLigne FROM NoteEtu WHERE noEtu=noEtu_u and annee=annee_u and matiere=matiere_u;
 	IF nbLigne > 0 THEN 
-		UPDATE NoteEtu SET noteExam = note WHERE noEtu=noEtu_u and annee=annee_u and matiere=matiere_u;
+		SELECT noteCC into noteC FROM NoteEtu WHERE noEtu=noEtu_u and annee=annee_u and matiere=matiere_u;
+		IF (noteC IS NULL) THEN
+			UPDATE NoteEtu SET noteCC = note, noteExam = note WHERE noEtu=noEtu_u and annee=annee_u and matiere=matiere_u;
+		ELSE
+			UPDATE NoteEtu SET noteExam = note WHERE noEtu=noEtu_u and annee=annee_u and matiere=matiere_u;
+		END IF;
 	ELSE
-		insert into NoteEtu (noEtu,annee,matiere,noteExam) values (noEtu_u, annee_u, matiere_u, note);
-	end if;
+		insert into NoteEtu values (noEtu_u, annee_u, matiere_u, note, note);
+	END IF;
 end;
 /
+
+
+if (:new.noteCC IS NULL) then
+		if (:new.noteExam IS NULL) then
+			raise notes_null;
+		else
+			insert into NoteEtu values (:new.noEtu, :new.annee, :new.matiere, :new.noteExam, :new.noteExam);
+		end if;
+	else
+		if (:new.noteExam IS NULL) then
+			insert into NoteEtu values (:new.noEtu, :new.annee, :new.matiere, :new.noteCC, :new.noteCC);
+		end if;
+	end if;
 -----------------------------------------------------
 -- 					FUNCTIONS					   --
 -----------------------------------------------------

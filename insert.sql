@@ -29,8 +29,9 @@ EXEC insertCM('Rampon', 'Jean-Xavier');
 EXEC insertCM('Rusu-Robini', 'Irena');
 EXEC insertCM('Goualard', 'Fréderick');
 
+EXEC insertTD('Jeffreys','Brendon');
+EXEC insertTD('Guinness', 'Frazer');--501A
 EXEC insertTD('Goualard', 'Fréderick');--501A
-EXEC insertTD('Guinness', '');--501A
 EXEC insertTD('Rusu-Robini', 'Irena');--501A
 EXEC insertCM('Bechet', 'Denis');--501B 502
 EXEC insertTD('Richoux', 'Florian');

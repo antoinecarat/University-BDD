@@ -10,7 +10,8 @@ CREATE TABLE ResultatEtudiant(
 	semestre number(2),
 	annee number(4),
 	moyenneSem number(4,2),
-	CONSTRAINT pk_ResultatEtudiant PRIMARY KEY (noEtu, semestre, annee)
+	CONSTRAINT pk_ResultatEtudiant PRIMARY KEY (noEtu, semestre, annee),
+	CONSTRAINT fk_noEtuRE FOREIGN KEY (noEtu) REFERENCES Etudiant(noEtu)
 	);
 
 CREATE TABLE Matiere(
@@ -83,7 +84,10 @@ CREATE TABLE NoteEtu(
 	matiere varchar2(10),
 	noteCC number(4,2),
 	noteExam number(4,2),
-	CONSTRAINT pk_NoteEtu PRIMARY KEY (noEtu, annee, matiere)
+	CONSTRAINT pk_NoteEtu PRIMARY KEY (noEtu, annee, matiere),
+	CONSTRAINT fk_noEtuNE FOREIGN KEY (noEtu) REFERENCES Etudiant(noEtu),
+	CONSTRAINT check_noteCC CHECK(noteCC BETWEEN 0 AND 20),
+	CONSTRAINT check_noteExam CHECK(noteExam BETWEEN 0 AND 20)
 	);
 
 CREATE TABLE GroupeEtu(
@@ -92,5 +96,5 @@ CREATE TABLE GroupeEtu(
 	matiere varchar2(10),
 	annee number(4),
 	CONSTRAINT pk_GroupeEtu PRIMARY KEY (noEtu, groupe, matiere, annee),
-	CONSTRAINT fk_noEtu FOREIGN KEY (noEtu) REFERENCES Etudiant(noEtu)
+	CONSTRAINT fk_noEtuGE FOREIGN KEY (noEtu) REFERENCES Etudiant(noEtu)
 	);

@@ -50,7 +50,7 @@ EXEC insertNoteExam('129010d', 2015, 'X5T0280', NULL);
 -- EXEC insertNoteCC('112771c', 2015, 'X6I0050', 14);
 -- EXEC insertNoteExam('112771c', 2015, 'X6I0050', 14);
 
-insert into ResultatEtudiant values('129010d',5,2015, calcul_moyenneSem('129010d', 5));
+insert into ResultatEtudiant values('129010d',5,2015, calcul_moyenneSem('129010d', 5, 2015));
 
 -- insert into ResultatEtudiant values('112771c',5,2015, calcul_moyenneSem('112771c', 5));
 -- insert into ResultatEtudiant values('133501k',5,2015, calcul_moyenneSem('133501k', 5));
