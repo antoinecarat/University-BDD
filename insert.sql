@@ -1,69 +1,156 @@
+--------------
+-- Matieres --
+--------------
+
+insert into Matiere values('X5I0010', 1, 14.5, 13, 8); --ODA
+insert into Matiere values('X5I0020', 1, 14.5, 13, 8); --EtudesAlgo
+insert into Matiere values('X5I0030', 1, 14.5, 13, 8); --Archi
+insert into Matiere values('X5I0040', 1, 14.5, 13, 8); --Algo
+insert into Matiere values('X5I0050', 1, 14.5, 13, 8); --L&A
+insert into Matiere values('X5A0010', 0.5, 14.5, 13, 8); --Anglais
+insert into Matiere values('X5T0280', 0.3, 14.5, 13, 8); --OP
+
+insert into Matiere values('X6I0010', 1, 11, 12, 9); --PF
+insert into Matiere values('X6I0020', 1, 11, 12, 9); --Fondement
+insert into Matiere values('X6I0030', 1, 11, 12, 9); --RO
+insert into Matiere values('X6I0040', 1, 11, 12, 9); --R&T
+insert into Matiere values('X6I0050', 1, 12, 10, 11); --BDD
+insert into Matiere values('X6A0010', 0.3, 13, 9, 15); --Anglais
+insert into Matiere values('X6I0100', 0.5, 11, 12, 9); --Stage
+
+-----------------
+-- Enseignants --
+-----------------
+
+-- S5
+EXEC insertCM('Richoux', 'Florian');
+EXEC insertCM('Bechet', 'Denis');
+EXEC insertCM('Rampon', 'Jean-Xavier');
+EXEC insertCM('Rusu-Robini', 'Irena');
+EXEC insertCM('Goualard', 'Fréderick');
+
+EXEC insertTD('Goualard', 'Fréderick');--501A
+EXEC insertTD('Guinness', '');--501A
+EXEC insertTD('Rusu-Robini', 'Irena');--501A
+EXEC insertCM('Bechet', 'Denis');--501B 502
+EXEC insertTD('Richoux', 'Florian');
+EXEC insertTD('Gurevsky', 'Evgeny');--502
+EXEC insertTD('Fertin', 'Guillaume');--502D
+EXEC insertTD('Berger', 'Sandra');--501A 502
+
+EXEC insertTP('Rusu-Robini', 'Irena');
+EXEC insertTP('Richoux', 'Florian');
+EXEC insertTD('Monfroy', 'Eric');
+EXEC insertTP('Li', 'Jing');
+EXEC insertTP('Fertin', 'Guillaume');--502D
+
+--S6
 EXEC insertCM('Serrano', 'Patricia');
 EXEC insertCM('Thoraval', 'René');
-EXEC insertCM('Goualard', 'Fréderick');
+EXEC insertCM('Przybylski', 'Anthony');
+EXEC insertCM('Monfroy', 'Eric');
+EXEC insertCM('Enguehard', 'Chantal');
+EXEC insertCM('Jard', 'Claude');
 
 EXEC insertTD('Serrano', 'Patricia');
 EXEC insertTD('Thoraval', 'René');
-EXEC insertTD('Goualard', 'Fréderick');
-EXEC insertTD('Fertin', 'Guillaume');
+EXEC insertTD('Le Reste', 'Marie-Cecile');
+EXEC insertTD('Vincent', 'Emmanuel');
+EXEC insertTD('Richoux', 'Florian');
+EXEC insertTD('Delahaye', 'Benoit');
+EXEC insertTD('Jard', 'Claude');
 EXEC insertTD('Monfroy', 'Eric');
+EXEC insertTD('Enguehard', 'Chantal');
 
 EXEC insertTP('Piscetelli', 'David');
+EXEC insertTP('Moizeau','Isabelle');
+EXEC insertTP('Przybylski', 'Anthony');
+EXEC insertTP('Richoux','Florian');
+EXEC insertTP('Passard', 'Pierick');
+EXEC insertTP('Delahaye','Benoit');
 EXEC insertTP('Thoraval', 'René');
-EXEC insertTP('Li', 'Jing');
 
-insert into Matiere values('X6I0050', 1, 12, 10, 11);
-insert into Matiere values('X6I0010', 1, 11, 12, 9);
-insert into Matiere values('X5I0030', 1, 14.5, 13, 8);
-insert into Matiere values('X6IM020', 1, 13, 9, 15);
 
-insert into ResponsableMatiere values('X6I0050', 2015, 'pSerrano');
-insert into ResponsableMatiere values('X6I0010', 2015, 'rThoraval');
+------------------------------------
+-- Affectation Enseignant-Matiere --
+------------------------------------
+
+--S5
+insert into ResponsableMatiere values('X5I0010', 2015, 'fRichoux');
+insert into ResponsableMatiere values('X5I0020', 2015, 'jRampon');
 insert into ResponsableMatiere values('X5I0030', 2015, 'fGoualard');
+insert into ResponsableMatiere values('X5I0040', 2015, 'iRusu-Robini');
+insert into ResponsableMatiere values('X5I0050', 2015, 'dBechet');
 
-insert into MatiereTdTp values('X6I0050', 2015, '601B', 'pSerrano', 'dPiscetelli');
+insert into MatiereTdTp values('X5I0010', 2015, '501A', 'fRichoux', 'fRichoux');
+insert into MatiereTdTp values('X5I0010', 2015, '501B', 'fRichoux', 'fRichoux');
+insert into MatiereTdTp values('X5I0010', 2015, '502C', 'fRichoux', 'fRichoux');
+insert into MatiereTdTp values('X5I0010', 2015, '502D', 'fRichoux', 'fRichoux');
+
+insert into MatiereTdTp values('X5I0020', 2015, '501A', 'jRampon', NULL);
+insert into MatiereTdTp values('X5I0020', 2015, '501B', 'jRampon', NULL);
+insert into MatiereTdTp values('X5I0020', 2015, '502C', 'jRampon', NULL);
+insert into MatiereTdTp values('X5I0020', 2015, '502D', 'jRampon', NULL);
+
+insert into MatiereTdTp values('X5I0030', 2015, '501A', 'fGoualard', 'fGoualard');
+insert into MatiereTdTp values('X5I0030', 2015, '501B', 'eMonfroy', 'eMonfroy');
+insert into MatiereTdTp values('X5I0030', 2015, '502C', 'eMonfroy', 'eMonfroy');
+insert into MatiereTdTp values('X5I0030', 2015, '502D', 'gFertin', 'gFertin');
+
+insert into MatiereTdTp values('X5I0040', 2015, '501A', 'iRusu-Robini', 'iRusu-Robini');
+insert into MatiereTdTp values('X5I0040', 2015, '501B', 'iRusu-Robini', 'iRusu-Robini');
+insert into MatiereTdTp values('X5I0040', 2015, '502C', 'eGurevsky', 'eGurevsky');
+insert into MatiereTdTp values('X5I0040', 2015, '502D', 'eGurevsky', 'eGurevsky');
+
+insert into MatiereTdTp values('X5I0050', 2015, '501A', 'dBechet', 'eMonfroy');
+insert into MatiereTdTp values('X5I0050', 2015, '501B', 'dBechet', 'eMonfroy');
+insert into MatiereTdTp values('X5I0050', 2015, '502C', 'dBechet', 'eMonfroy');
+insert into MatiereTdTp values('X5I0050', 2015, '502D', 'eMonfroy', 'eMonfroy');
+
+
+
+--S6
+insert into ResponsableMatiere values('X6I0010', 2015, 'rThoraval');
+insert into ResponsableMatiere values('X6I0020', 2015, 'cEnguehard');
+insert into ResponsableMatiere values('X6I0030', 2015, 'aPrzybylski');
+insert into ResponsableMatiere values('X6I0040', 2015, 'cJard');
+insert into ResponsableMatiere values('X6I0050', 2015, 'pSerrano');
+
+insert into MatiereTdTp values('X6I0010', 2015, '601A', 'rThoraval', 'rThoraval');
 insert into MatiereTdTp values('X6I0010', 2015, '601B', 'rThoraval', 'rThoraval');
-insert into MatiereTdTp values('X5I0030', 2015, '502C', 'eMonfroy', 'jLi');
+insert into MatiereTdTp values('X6I0010', 2015, '602C', 'rThoraval', 'rThoraval');
+insert into MatiereTdTp values('X6I0010', 2015, '602D', 'rThoraval', 'rThoraval');
+
+insert into MatiereTdTp values('X6I0020', 2015, '601A', 'eMonfroy', NULL);
+insert into MatiereTdTp values('X6I0020', 2015, '601B', 'cEnguehard', NULL);
+insert into MatiereTdTp values('X6I0020', 2015, '602C', 'eMonfroy', NULL);
+insert into MatiereTdTp values('X6I0020', 2015, '602D', 'eMonfroy', NULL);
+
+insert into MatiereTdTp values('X6I0030', 2015, '601A', 'aPrzybylski', 'aPrzybylski');
+insert into MatiereTdTp values('X6I0030', 2015, '601B', 'fRichoux', 'fRichoux');
+insert into MatiereTdTp values('X6I0030', 2015, '602C', 'aPrzybylski', 'aPrzybylski');
+insert into MatiereTdTp values('X6I0030', 2015, '602D', 'aPrzybylski', 'aPrzybylski');
+
+insert into MatiereTdTp values('X6I0040', 2015, '601A', 'cJard', 'pPassard');
+insert into MatiereTdTp values('X6I0040', 2015, '601B', 'bDelahaye', 'bDelahaye');
+insert into MatiereTdTp values('X6I0040', 2015, '602C', 'cJard', 'pPassard');
+insert into MatiereTdTp values('X6I0040', 2015, '602D', 'cJard', 'pPassard');
+
+insert into MatiereTdTp values('X6I0050', 2015, '601A', 'pSerrano', 'iMoizeau');
+insert into MatiereTdTp values('X6I0050', 2015, '601B', 'pSerrano', 'dPiscetelli');
+insert into MatiereTdTp values('X6I0050', 2015, '602C', 'pSerrano', 'dPiscetelli');
+insert into MatiereTdTp values('X6I0050', 2015, '602D', 'pSerrano', 'dPiscetelli');
+
+-------------
+-- Groupes --
+-------------
 
 insert into GroupeCours values('501A', 5, 'L3-Info', 'Informatique');
 insert into GroupeCours values('501B', 5, 'L3-Info', 'Informatique');
 insert into GroupeCours values('502C', 5, 'L3-Info', 'Informatique');
 insert into GroupeCours values('502D', 5, 'L3-Info', 'Informatique');
+
 insert into GroupeCours values('601A', 6, 'L3-Info', 'Informatique');
 insert into GroupeCours values('601B', 6, 'L3-Info', 'Informatique');
 insert into GroupeCours values('602C', 6, 'L3-Info', 'Informatique');
 insert into GroupeCours values('602D', 6, 'L3-Info', 'Informatique');
-
-EXEC insertEtudiant('129010d','Carat','Antoine','601B',2015);
-EXEC insertEtudiant('112771c','Turrado','Léo','601B',2015);
-EXEC insertEtudiant('133501k','Grondin', 'Mathieu','601B',2015);
-EXEC insertEtudiant('133641M','Maestracci','Damien','601B',2015);
-EXEC insertEtudiant('134727s','Quémard','Maël','601B',2015);
-
-EXEC insertNoteCC('133501k', 2015, 'X5I0030', 14);
-EXEC insertNoteExam('133501k', 2015, 'X5I0030', 17);
-EXEC insertNoteCC('133501k', 2015, 'X6I0010', 16);
-EXEC insertNoteExam('133501k', 2015, 'X6I0010', 16);
-EXEC insertNoteCC('129010d', 2015, 'X6I0050', 14);
-EXEC insertNoteExam('129010d', 2015, 'X6I0050', 18);
-EXEC insertNoteCC('134727s', 2015, 'X6I0050', 11);
-EXEC insertNoteExam('134727s', 2015, 'X6I0050', 10);
-EXEC insertNoteCC('133641M', 2015, 'X6I0050', 12);
-EXEC insertNoteExam('133641M', 2015, 'X6I0050', 17);
-EXEC insertNoteCC('112771c', 2015, 'X6I0050', 14);
-EXEC insertNoteExam('112771c', 2015, 'X6I0050', 14);
-
-insert into ResultatEtudiant values('129010d',5,2015, calcul_moyenneSem('129010d', 5));
-insert into ResultatEtudiant values('112771c',5,2015, calcul_moyenneSem('112771c', 5));
-insert into ResultatEtudiant values('133501k',5,2015, calcul_moyenneSem('133501k', 5));
-insert into ResultatEtudiant values('133641M',5,2015, calcul_moyenneSem('133641M', 5));
-insert into ResultatEtudiant values('134727s',5,2015, calcul_moyenneSem('134727s', 5));
-insert into ResultatEtudiant values('133501k',6,2015, calcul_moyenneSem('133501k', 6));
-insert into ResultatEtudiant values('129010d',6,2015, calcul_moyenneSem('129010d', 6));
-insert into ResultatEtudiant values('112771c',6,2015, calcul_moyenneSem('112771c', 6));
-insert into ResultatEtudiant values('133641M',6,2015, calcul_moyenneSem('133641M', 6));
-insert into ResultatEtudiant values('134727s',6,2015, calcul_moyenneSem('134727s', 6));
-
-
-
-

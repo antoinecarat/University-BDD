@@ -10,11 +10,16 @@ create or replace procedure insertEtudiant(
 	groupe GroupeEtu.groupe%type,
 	annee GroupeEtu.annee%type) as
 cursor listeMatiere is select matiere from MatiereTdTp where MatiereTdTp.groupe = groupe;
+nbLigne number;
 begin
-	insert into Etudiant values (noEtu, nomEtu, preEtu);
-	for courant in listeMatiere loop
-		insert into GroupeEtu values (noEtu, groupe, courant.matiere, annee);
-	end loop;
+	SELECT count(*) into nbLigne FROM Etudiant WHERE Etudiant.noEtu=noEtu;
+	IF nbLigne = 0 THEN
+		insert into Etudiant values (noEtu, nomEtu, preEtu);
+	ELSE
+		for courant in listeMatiere loop
+			insert into GroupeEtu values (noEtu, groupe, courant.matiere, annee);
+		end loop;
+	END IF;
 end;
 /
 
