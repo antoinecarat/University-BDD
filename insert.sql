@@ -88,10 +88,10 @@ insert into MatiereTdTp values('X5I0010', 2015, '501B', 'fRichoux', 'fRichoux');
 insert into MatiereTdTp values('X5I0010', 2015, '502C', 'fRichoux', 'fRichoux');
 insert into MatiereTdTp values('X5I0010', 2015, '502D', 'fRichoux', 'fRichoux');
 
-insert into MatiereTdTp values('X5I0020', 2015, '501A', 'jRampon', NULL);
-insert into MatiereTdTp values('X5I0020', 2015, '501B', 'jRampon', NULL);
-insert into MatiereTdTp values('X5I0020', 2015, '502C', 'jRampon', NULL);
-insert into MatiereTdTp values('X5I0020', 2015, '502D', 'jRampon', NULL);
+insert into MatiereTdTp values('X5I0020', 2015, '501A', 'jRampon', 'jRampon');
+insert into MatiereTdTp values('X5I0020', 2015, '501B', 'jRampon', 'jRampon');
+insert into MatiereTdTp values('X5I0020', 2015, '502C', 'jRampon', 'jRampon');
+insert into MatiereTdTp values('X5I0020', 2015, '502D', 'jRampon', 'jRampon');
 
 insert into MatiereTdTp values('X5I0030', 2015, '501A', 'fGoualard', 'fGoualard');
 insert into MatiereTdTp values('X5I0030', 2015, '501B', 'eMonfroy', 'eMonfroy');
@@ -122,10 +122,10 @@ insert into MatiereTdTp values('X6I0010', 2015, '601B', 'rThoraval', 'rThoraval'
 insert into MatiereTdTp values('X6I0010', 2015, '602C', 'rThoraval', 'rThoraval');
 insert into MatiereTdTp values('X6I0010', 2015, '602D', 'rThoraval', 'rThoraval');
 
-insert into MatiereTdTp values('X6I0020', 2015, '601A', 'eMonfroy', NULL);
-insert into MatiereTdTp values('X6I0020', 2015, '601B', 'cEnguehard', NULL);
-insert into MatiereTdTp values('X6I0020', 2015, '602C', 'eMonfroy', NULL);
-insert into MatiereTdTp values('X6I0020', 2015, '602D', 'eMonfroy', NULL);
+insert into MatiereTdTp values('X6I0020', 2015, '601A', 'eMonfroy', 'eMonfroy');
+insert into MatiereTdTp values('X6I0020', 2015, '601B', 'cEnguehard', 'cEnguehard');
+insert into MatiereTdTp values('X6I0020', 2015, '602C', 'eMonfroy', 'eMonfroy');
+insert into MatiereTdTp values('X6I0020', 2015, '602D', 'eMonfroy', 'eMonfroy');
 
 insert into MatiereTdTp values('X6I0030', 2015, '601A', 'aPrzybylski', 'aPrzybylski');
 insert into MatiereTdTp values('X6I0030', 2015, '601B', 'fRichoux', 'fRichoux');

@@ -91,17 +91,6 @@ end;
 /
 
 
-if (:new.noteCC IS NULL) then
-		if (:new.noteExam IS NULL) then
-			raise notes_null;
-		else
-			insert into NoteEtu values (:new.noEtu, :new.annee, :new.matiere, :new.noteExam, :new.noteExam);
-		end if;
-	else
-		if (:new.noteExam IS NULL) then
-			insert into NoteEtu values (:new.noEtu, :new.annee, :new.matiere, :new.noteCC, :new.noteCC);
-		end if;
-	end if;
 -----------------------------------------------------
 -- 					FUNCTIONS					   --
 -----------------------------------------------------

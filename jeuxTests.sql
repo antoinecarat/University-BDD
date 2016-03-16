@@ -24,7 +24,6 @@ EXEC insertEtudiant('134727s','Quémard','Maël','601B',2015);
 EXEC insertNoteCC('129010d', 2015, 'X5I0010', 13.88);
 EXEC insertNoteExam('129010d', 2015, 'X5I0010', 14.5);
 EXEC insertNoteCC('129010d', 2015, 'X5I0020', 5);
-EXEC insertNoteExam('129010d', 2015, 'X5I0020', NULL);
 EXEC insertNoteCC('129010d', 2015, 'X5I0030', 11.6);
 EXEC insertNoteExam('129010d', 2015, 'X5I0030', 6.5);
 EXEC insertNoteCC('129010d', 2015, 'X5I0040', 12.6);
@@ -34,8 +33,6 @@ EXEC insertNoteExam('129010d', 2015, 'X5I0050', 8);
 EXEC insertNoteCC('129010d', 2015, 'X5A0010', 14);
 EXEC insertNoteExam('129010d', 2015, 'X5A0010', 17);
 EXEC insertNoteCC('129010d', 2015, 'X5T0280', 10);
-EXEC insertNoteExam('129010d', 2015, 'X5T0280', NULL);
-
 
 -- EXEC insertNoteCC('133501k', 2015, 'X5I0030', 14);
 -- EXEC insertNoteExam('133501k', 2015, 'X5I0030', 17);

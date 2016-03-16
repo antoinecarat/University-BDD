@@ -10,7 +10,7 @@ CREATE OR REPLACE VIEW Nb_h_matiere AS
 	FROM Matiere;
 
 CREATE OR REPLACE VIEW Liste_etu_matiere AS
-	SELECT g.annee, rm.idResp_CM, mt.idresp_TD, mt.idResp_TP, g.matiere, g.groupe, g.noEtu, e.nomEtu, e.preEtu
+	SELECT DISTINCT g.annee, rm.idResp_CM, mt.idresp_TD, mt.idResp_TP, g.matiere, g.groupe, g.noEtu, e.nomEtu, e.preEtu
 	FROM ResponsableMatiere rm , MatiereTdTp mt, GroupeEtu g, Etudiant e
 	WHERE g.annee = rm.annee and g.annee = mt.annee 
 	AND g.matiere = rm.matiere and g.matiere = mt.matiere
