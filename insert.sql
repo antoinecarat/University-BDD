@@ -1,22 +1,18 @@
---------------
--- Matieres --
---------------
+insert into Matiere values('X5I0010', 1, 14.5, 13, 8);
+insert into Matiere values('X5I0020', 1, 14.5, 13, 8);
+insert into Matiere values('X5I0030', 1, 14.5, 13, 8);
+insert into Matiere values('X5I0040', 1, 14.5, 13, 8);
+insert into Matiere values('X5I0050', 1, 14.5, 13, 8);
+insert into Matiere values('X5A0010', 0.5, 14.5, 13, 8);
+insert into Matiere values('X5T0280', 0.3, 14.5, 13, 8);
 
-insert into Matiere values('X5I0010', 1, 14.5, 13, 8); --ODA
-insert into Matiere values('X5I0020', 1, 14.5, 13, 8); --EtudesAlgo
-insert into Matiere values('X5I0030', 1, 14.5, 13, 8); --Archi
-insert into Matiere values('X5I0040', 1, 14.5, 13, 8); --Algo
-insert into Matiere values('X5I0050', 1, 14.5, 13, 8); --L&A
-insert into Matiere values('X5A0010', 0.5, 14.5, 13, 8); --Anglais
-insert into Matiere values('X5T0280', 0.3, 14.5, 13, 8); --OP
-
-insert into Matiere values('X6I0010', 1, 11, 12, 9); --PF
-insert into Matiere values('X6I0020', 1, 11, 12, 9); --Fondement
-insert into Matiere values('X6I0030', 1, 11, 12, 9); --RO
-insert into Matiere values('X6I0040', 1, 11, 12, 9); --R&T
-insert into Matiere values('X6I0050', 1, 12, 10, 11); --BDD
-insert into Matiere values('X6A0010', 0.3, 13, 9, 15); --Anglais
-insert into Matiere values('X6I0100', 0.5, 11, 12, 9); --Stage
+insert into Matiere values('X6I0010', 1, 11, 12, 9);
+insert into Matiere values('X6I0020', 1, 11, 12, 9);
+insert into Matiere values('X6I0030', 1, 11, 12, 9);
+insert into Matiere values('X6I0040', 1, 11, 12, 9);
+insert into Matiere values('X6I0050', 1, 12, 10, 11);
+insert into Matiere values('X6A0010', 0.3, 13, 9, 15);
+insert into Matiere values('X6I0100', 0.5, 11, 12, 9);
 
 -----------------
 -- Enseignants --
@@ -30,20 +26,24 @@ EXEC insertCM('Rusu-Robini', 'Irena');
 EXEC insertCM('Goualard', 'Fréderick');
 
 EXEC insertTD('Jeffreys','Brendon');
-EXEC insertTD('Guinness', 'Frazer');--501A
-EXEC insertTD('Goualard', 'Fréderick');--501A
-EXEC insertTD('Rusu-Robini', 'Irena');--501A
-EXEC insertCM('Bechet', 'Denis');--501B 502
+EXEC insertTD('Guinness', 'Frazer');
+EXEC insertTD('Goualard', 'Fréderick');
+EXEC insertTD('Rusu-Robini', 'Irena');
+EXEC insertTD('Bechet', 'Denis');
 EXEC insertTD('Richoux', 'Florian');
-EXEC insertTD('Gurevsky', 'Evgeny');--502
-EXEC insertTD('Fertin', 'Guillaume');--502D
-EXEC insertTD('Berger', 'Sandra');--501A 502
+EXEC insertTD('Gurevsky', 'Evgeny');
+EXEC insertTD('Fertin', 'Guillaume');
+EXEC insertTD('Berger', 'Sandra');
+EXEC insertTD('Rampon', 'Jean-Xavier');
 
 EXEC insertTP('Rusu-Robini', 'Irena');
 EXEC insertTP('Richoux', 'Florian');
 EXEC insertTD('Monfroy', 'Eric');
 EXEC insertTP('Li', 'Jing');
-EXEC insertTP('Fertin', 'Guillaume');--502D
+EXEC insertTP('Fertin', 'Guillaume');
+EXEC insertTP('Gurevsky', 'Evgeny');
+EXEC insertTP('Goualard', 'Fréderick');
+EXEC insertTP('Rampon', 'Jean-Xavier');
 
 --S6
 EXEC insertCM('Serrano', 'Patricia');
@@ -62,6 +62,7 @@ EXEC insertTD('Delahaye', 'Benoit');
 EXEC insertTD('Jard', 'Claude');
 EXEC insertTD('Monfroy', 'Eric');
 EXEC insertTD('Enguehard', 'Chantal');
+EXEC insertTD('Przybylski', 'Anthony');
 
 EXEC insertTP('Piscetelli', 'David');
 EXEC insertTP('Moizeau','Isabelle');
@@ -70,6 +71,8 @@ EXEC insertTP('Richoux','Florian');
 EXEC insertTP('Passard', 'Pierick');
 EXEC insertTP('Delahaye','Benoit');
 EXEC insertTP('Thoraval', 'René');
+EXEC insertTP('Monfroy', 'Eric');
+EXEC insertTP('Enguehard', 'Chantal');
 
 
 ------------------------------------

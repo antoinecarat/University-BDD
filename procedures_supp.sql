@@ -1,4 +1,3 @@
-
 create or replace function calcul_moyenneMatPromo(
 	matiere_etu IN NoteEtu.matiere%type,
 	annee_etu IN NoteEtu.annee%type
