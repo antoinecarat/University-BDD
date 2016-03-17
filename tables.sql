@@ -64,8 +64,8 @@ CREATE TABLE MatiereTdTp(
 	);
 
 CREATE TABLE NoteMatiere(
-	noteExam number(4,2),
 	noteCC number(4,2),
+	noteExam number(4,2),
 	moyenneMat number(4,2),
 	CONSTRAINT pk_NoteMatiere PRIMARY KEY (noteExam, noteCC)
 	);

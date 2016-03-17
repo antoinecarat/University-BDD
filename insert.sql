@@ -23,53 +23,32 @@ insert into Matiere values('X6I0100', 0.5, 11, 12, 9); --Stage
 -----------------
 
 -- S5
-EXEC insertCM('Richoux', 'Florian');
-EXEC insertCM('Bechet', 'Denis');
-EXEC insertCM('Rampon', 'Jean-Xavier');
-EXEC insertCM('Rusu-Robini', 'Irena');
-EXEC insertCM('Goualard', 'Fréderick');
+EXEC insertEnseignant('Richoux', 'Florian');
+EXEC insertEnseignant('Bechet', 'Denis');
+EXEC insertEnseignant('Rampon', 'Jean-Xavier');
+EXEC insertEnseignant('Rusu-Robini', 'Irena');
+EXEC insertEnseignant('Goualard', 'Frederick');
+EXEC insertEnseignant('Jeffreys', 'Brendon');
+EXEC insertEnseignant('Guinness', 'Frazer');
+EXEC insertEnseignant('Gurevsky', 'Evgeny');
+EXEC insertEnseignant('Fertin', 'Guillaume');
+EXEC insertEnseignant('Berger', 'Sandra');
+EXEC insertEnseignant('Monfroy', 'Eric');
+EXEC insertEnseignant('Li', 'Jing');
 
-EXEC insertTD('Jeffreys','Brendon');
-EXEC insertTD('Guinness', 'Frazer');--501A
-EXEC insertTD('Goualard', 'Fréderick');--501A
-EXEC insertTD('Rusu-Robini', 'Irena');--501A
-EXEC insertCM('Bechet', 'Denis');--501B 502
-EXEC insertTD('Richoux', 'Florian');
-EXEC insertTD('Gurevsky', 'Evgeny');--502
-EXEC insertTD('Fertin', 'Guillaume');--502D
-EXEC insertTD('Berger', 'Sandra');--501A 502
-
-EXEC insertTP('Rusu-Robini', 'Irena');
-EXEC insertTP('Richoux', 'Florian');
-EXEC insertTD('Monfroy', 'Eric');
-EXEC insertTP('Li', 'Jing');
-EXEC insertTP('Fertin', 'Guillaume');--502D
 
 --S6
-EXEC insertCM('Serrano', 'Patricia');
-EXEC insertCM('Thoraval', 'René');
-EXEC insertCM('Przybylski', 'Anthony');
-EXEC insertCM('Monfroy', 'Eric');
-EXEC insertCM('Enguehard', 'Chantal');
-EXEC insertCM('Jard', 'Claude');
-
-EXEC insertTD('Serrano', 'Patricia');
-EXEC insertTD('Thoraval', 'René');
-EXEC insertTD('Le Reste', 'Marie-Cecile');
-EXEC insertTD('Vincent', 'Emmanuel');
-EXEC insertTD('Richoux', 'Florian');
-EXEC insertTD('Delahaye', 'Benoit');
-EXEC insertTD('Jard', 'Claude');
-EXEC insertTD('Monfroy', 'Eric');
-EXEC insertTD('Enguehard', 'Chantal');
-
-EXEC insertTP('Piscetelli', 'David');
-EXEC insertTP('Moizeau','Isabelle');
-EXEC insertTP('Przybylski', 'Anthony');
-EXEC insertTP('Richoux','Florian');
-EXEC insertTP('Passard', 'Pierick');
-EXEC insertTP('Delahaye','Benoit');
-EXEC insertTP('Thoraval', 'René');
+EXEC insertEnseignant('Serrano', 'Patricia');
+EXEC insertEnseignant('Thoraval', 'Rene');
+EXEC insertEnseignant('Przybylski', 'Anthony');
+EXEC insertEnseignant('Enguehard', 'Chantal');
+EXEC insertEnseignant('Jard', 'Claude');
+EXEC insertEnseignant('Le Reste', 'Marie-Cecile');
+EXEC insertEnseignant('Vincent', 'Emmanuel');
+EXEC insertEnseignant('Delahaye', 'Benoit');
+EXEC insertEnseignant('Piscetelli', 'David');
+EXEC insertEnseignant('Moizeau', 'Isabelle');
+EXEC insertEnseignant('Passard', 'Pierick');
 
 
 ------------------------------------
