@@ -22,29 +22,40 @@ begin
 end;
 /
 
-create or replace procedure insertCM(
-	nomResp_CM CM.nomResp_CM%type,
-	preResp_CM CM.preResp_CM%type) as
+
+CREATE OR REPLACE PROCEDURE insertEnseignant(
+	nomResp CM.nomResp_CM%type,
+	preResp CM.preResp_CM%type) as
 begin
-	insert into CM values(CONCAT(LOWER(SUBSTR(preResp_CM,1,1)),nomResp_CM), nomResp_CM, preResp_CM);
+	insert into CM values(CONCAT(LOWER(SUBSTR(preResp,1,1)),nomResp), nomResp, preResp);
+	insert into TD values(CONCAT(LOWER(SUBSTR(preResp,1,1)),nomResp), nomResp, preResp);
+	insert into TP values(CONCAT(LOWER(SUBSTR(preResp,1,1)),nomResp), nomResp, preResp);
 end;
 /
 
-create or replace procedure insertTD(
-	nomResp_TD TD.nomResp_TD%type,
-	preResp_TD TD.preResp_TD%type) as
-begin
-	insert into TD values(CONCAT(LOWER(SUBSTR(preResp_TD,1,1)),nomResp_TD), nomResp_TD, preResp_TD);
-end;
-/
+-- create or replace procedure insertCM(
+-- 	nomResp_CM CM.nomResp_CM%type,
+-- 	preResp_CM CM.preResp_CM%type) as
+-- begin
+-- 	insert into CM values(CONCAT(LOWER(SUBSTR(preResp_CM,1,1)),nomResp_CM), nomResp_CM, preResp_CM);
+-- end;
+-- /
 
-create or replace procedure insertTP(
-	nomResp_TP TP.nomResp_TP%type,
-	preResp_TP TP.preResp_TP%type) as
-begin
-	insert into TP values(CONCAT(LOWER(SUBSTR(preResp_TP,1,1)),nomResp_TP), nomResp_TP, preResp_TP);
-end;
-/
+-- create or replace procedure insertTD(
+-- 	nomResp_TD TD.nomResp_TD%type,
+-- 	preResp_TD TD.preResp_TD%type) as
+-- begin
+-- 	insert into TD values(CONCAT(LOWER(SUBSTR(preResp_TD,1,1)),nomResp_TD), nomResp_TD, preResp_TD);
+-- end;
+-- /
+
+-- create or replace procedure insertTP(
+-- 	nomResp_TP TP.nomResp_TP%type,
+-- 	preResp_TP TP.preResp_TP%type) as
+-- begin
+-- 	insert into TP values(CONCAT(LOWER(SUBSTR(preResp_TP,1,1)),nomResp_TP), nomResp_TP, preResp_TP);
+-- end;
+-- /
 
 create or replace procedure insertNoteCC(
 	noEtu_u Etudiant.noEtu%type,
@@ -90,6 +101,36 @@ begin
 end;
 /
 
+SET SERVEROUTPUT ON
+create or replace procedure bulletin_semestriel_etu(
+	semestre_etu  ResultatEtudiant.semestre%type,
+	annee_etu  ResultatEtudiant.annee%type,
+	noEtudiant  ResultatEtudiant.noEtu%type) as
+cursor bulletin is select * from bulletins_etu where noEtu = noEtudiant and semestre = semestre_etu and annee = annee_etu;
+begin
+	for ligne IN bulletin LOOP
+		dbms_output.put_line('annee | semestre | noEtudiant | nomEtu | prenomEtu | matiere | moyenneMat');
+		dbms_output.put_line(ligne.annee || ' | ' || ligne.semestre || ' | ' || ligne.noEtu || ' | ' || ligne.nomEtu || ' | ' || ligne.preEtu || ' | ' || ligne.matiere || ' | ' || ligne.moyenneMat);
+		dbms_output.put_line('moyenneMatPromo | moyenneSem | moyenneSemPromo');
+		dbms_output.put_line(ligne.moyenneMatPromo || ' | ' || ligne.moyenneSem || ' | ' || ligne.moyenneSemPromo);
+	end loop;
+end;
+/
+
+
+create or replace procedure bulletin_annuel_etu(
+	annee_etu  ResultatEtudiant.annee%type,
+	noEtudiant  ResultatEtudiant.noEtu%type) as
+cursor bulletin is select * from bulletins_etu where noEtu = noEtudiant and annee = annee_etu;
+begin
+	for ligne IN bulletin LOOP
+		dbms_output.put_line('annee | semestre | noEtudiant | nomEtu | prenomEtu | matiere | moyenneMat');
+		dbms_output.put_line(ligne.annee || ' | ' || ligne.semestre || ' | E' || ligne.noEtu || ' | ' || ligne.nomEtu || ' | ' || ligne.preEtu || ' | ' || ligne.matiere || ' | ' || ligne.moyenneMat);
+		dbms_output.put_line('moyenneMatPromo | moyenneSem | moyenneSemPromo');
+		dbms_output.put_line(ligne.moyenneMatPromo || ' | ' || ligne.moyenneSem || ' | ' || ligne.moyenneSemPromo);
+	end loop;
+end;
+/
 
 -----------------------------------------------------
 -- 					FUNCTIONS					   --
