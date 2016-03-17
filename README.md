@@ -10,7 +10,6 @@ Database representing University of Nantes behaviour.
 
 ###Triggers : 
 - [x] mettre à jour les moyennes en fonction des notes de cc et exam *à l'insertion et à la mise à jour*
-- [ ] mettre à jour les moyennes du semestre et des matières *Si c'est la note exam qui est entrée*
 - [x] vérifier que l'étudiant est inscrit au cours pour lui rajouter une note
 
 ###Vues : 

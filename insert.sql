@@ -80,7 +80,7 @@ insert into MatiereTdTp values('X5I0040', 2015, '502D', 'eGurevsky', 'eGurevsky'
 insert into MatiereTdTp values('X5I0050', 2015, '501A', 'dBechet', 'eMonfroy');
 insert into MatiereTdTp values('X5I0050', 2015, '501B', 'dBechet', 'eMonfroy');
 insert into MatiereTdTp values('X5I0050', 2015, '502C', 'dBechet', 'eMonfroy');
-insert into MatiereTdTp values('X5I0050', 2015, '502D', 'eMonfroy', 'eMonfroy');
+--insert into MatiereTdTp values('X5I0050', 2015, '502D', 'eMonfroy', 'eMonfroy');
 
 
 

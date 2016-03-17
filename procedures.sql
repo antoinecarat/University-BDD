@@ -181,5 +181,6 @@ begin
 		cmp := cmp+1;
 	END LOOP;
 		moy := (somme / cmp);
+	return moy;
 end;
 /
