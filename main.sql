@@ -1,9 +1,13 @@
 @drop
+
 @tables
-@procedures
 @vues
-@procedures_supp
+@procedures
 @vues_supp
+@procedures_supp
 @roles
 @triggers
 @insert
+@jeuxTests
+
+COMMIT;

@@ -56,6 +56,8 @@ insert into ResponsableMatiere values('X5I0020', 2015, 'jRampon');
 insert into ResponsableMatiere values('X5I0030', 2015, 'fGoualard');
 insert into ResponsableMatiere values('X5I0040', 2015, 'iRusu-Robini');
 insert into ResponsableMatiere values('X5I0050', 2015, 'dBechet');
+insert into ResponsableMatiere values('X5T0280', 2015, 'sBerger');
+insert into ResponsableMatiere values('X5A0010', 2015, 'eVincent');
 
 insert into MatiereTdTp values('X5I0010', 2015, '501A', 'fRichoux', 'fRichoux');
 insert into MatiereTdTp values('X5I0010', 2015, '501B', 'fRichoux', 'fRichoux');
@@ -80,8 +82,17 @@ insert into MatiereTdTp values('X5I0040', 2015, '502D', 'eGurevsky', 'eGurevsky'
 insert into MatiereTdTp values('X5I0050', 2015, '501A', 'dBechet', 'eMonfroy');
 insert into MatiereTdTp values('X5I0050', 2015, '501B', 'dBechet', 'eMonfroy');
 insert into MatiereTdTp values('X5I0050', 2015, '502C', 'dBechet', 'eMonfroy');
---insert into MatiereTdTp values('X5I0050', 2015, '502D', 'eMonfroy', 'eMonfroy');
+insert into MatiereTdTp values('X5I0050', 2015, '502D', 'eMonfroy', 'eMonfroy');
 
+insert into MatiereTdTp values('X5T0280', 2015, '501A', 'sBerger', 'sBerger');
+insert into MatiereTdTp values('X5T0280', 2015, '501B', 'sBerger', 'sBerger');
+insert into MatiereTdTp values('X5T0280', 2015, '502C', 'sBerger', 'sBerger');
+insert into MatiereTdTp values('X5T0280', 2015, '502D', 'sBerger', 'sBerger');
+
+insert into MatiereTdTp values('X5A0010', 2015, '501A', 'fGuinness', 'fGuinness');
+insert into MatiereTdTp values('X5A0010', 2015, '501B', 'fGuinness', 'fGuinness');
+insert into MatiereTdTp values('X5A0010', 2015, '502C', 'bJeffreys', 'bJeffreys');
+insert into MatiereTdTp values('X5A0010', 2015, '502D', 'bJeffreys', 'bJeffreys');
 
 
 --S6

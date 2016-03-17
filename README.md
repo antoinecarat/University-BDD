@@ -1,39 +1,46 @@
 # University-BDD
 Database representing University of Nantes behaviour.
 
-## To-Do List
+## Database Composition :
 
-###General :
-- [ ] corriger le main.sql pour que les dépendances entre procedures et vues ne soient plus problematiques
-- [x] Prendre en compte le fait que certaine matiere n'ont pas d'exam (noteExam=NULL)
-- [ ] Pareil pour les cours sans TP
-
-###Triggers : 
-- [x] mettre à jour les moyennes en fonction des notes de cc et exam *à l'insertion et à la mise à jour*
-- [x] vérifier que l'étudiant est inscrit au cours pour lui rajouter une note
+###Tables :
+- Etudiant
+- ResultatEtudiant
+- Matiere
+- CM
+- TD
+- TP
+- ResponsableMatiere
+- MatiereTdTp
+- NoteMatiere
+- GroupeCours
+- NoteEtu
+- GroupeEtu
 
 ###Vues : 
-- [x] aperçu des notes pour chaque étudiant 
-- [x] aperçu de la liste des élèves pour un cours d’un prof
-- [x] aperçu du nombre d’heures d’un cours
-- [x] aperçu du bulletin de chaque étudiant
+- Notes pour chaque étudiant
+- Liste des élèves par prof et par cours
+- Nombre d’heure (CM, TD, TP et total) pour chaque cours
+- Bulletin de chaque étudiant.
+
+###Triggers :
+- Mise à jour des moyennes à l'ajout et à l'insertion d'une note
+- Vérification de l'inscription d'un étudiant à un cours auquel on veut lui ajouter une note.
+
 
 ###Fonctions / Procédure :
-- [x] insertion d’un étudiant (affectation des matieres pour un étudiant en fonction du groupe)
-- [x] insertion d'un enseignant (CC, TD ou TP)
-- [x] insertion d'une noteCC / noteExam
-- [x] bulletin annuel / semestriel de l’étudiant avec moyenne (reporting SQLPlus ?)
-- [x] calcul la moyenne du semestre d'un étudiant
-- [x] calcul de la moyenne de la promo sur une .matiere
-- [x] calcul de la moyenne de la promo sur un semestre
+- insertion d’un étudiant
+- insertion d'un enseignant (CC, TD et TP)
+- insertion d'une noteCC / noteExam
+- bulletin annuel / semestriel de l’étudiant avec moyenne
+- calcul la moyenne du semestre d'un étudiant
+- calcul de la moyenne de la promo sur une matiere
+- calcul de la moyenne de la promo sur un semestre
 
 ###Rôles/Droits : 
-- [x] Univ-Enseignant :
-  - [x] insérer des notes dans une matière ou l'on est responsable (CC, TD ou TP) (Séparation des copies pour les corrigés)
-  - [x] consultation des élèves inscrit à un cours dont on est responsable (CC, TD ou TP)
-- [x] Univ-Etudiant :
-  - [x] consultation des cours ou l'on est inscrit
-  - [x] consultation des notes
-
-###Index :
-- [ ] index sur les id responsables
+- Univ-Enseignant :
+  - insérer des notes
+  - consulter la liste des élèves suivant un cours
+- Univ-Etudiant :
+  - consulter les cours ou l'on est inscrit
+  - consulter les notes et les bulletins

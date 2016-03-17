@@ -31,4 +31,3 @@ BEGIN
 		WHEN etudiant_non_inscrit THEN RAISE_APPLICATION_ERROR (-20002, 'L etudiant ne suit pas ce cours.');
 END;
 /
-SELECT COUNT(*) FROM GroupeEtu WHERE noEtu = '129010D';
