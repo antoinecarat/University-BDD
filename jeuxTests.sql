@@ -22,7 +22,7 @@ EXEC insertEtudiant('134727s','Quémard','Maël','601B',2015);
 -----------
 
 EXEC insertNoteCC('129010D', 2015, 'X5I0010', 13.88);
---EXEC insertNoteExam('129010D', 2015, 'X5I0010', 14.5);
+EXEC insertNoteExam('129010D', 2015, 'X5I0010', 14.5);
 EXEC insertNoteCC('129010D', 2015, 'X5I0020', 5);
 EXEC insertNoteCC('129010D', 2015, 'X5I0030', 11.6);
 EXEC insertNoteExam('129010D', 2015, 'X5I0030', 6.5);
@@ -47,8 +47,7 @@ EXEC insertNoteCC('129010D', 2015, 'X5T0280', 10);
 -- EXEC insertNoteCC('112771c', 2015, 'X6I0050', 14);
 -- EXEC insertNoteExam('112771c', 2015, 'X6I0050', 14);
 
-insert into ResultatEtudiant values('129010D',5,2015, calcul_moyenneSem('129010D', 5, 2015));
-
+-- insert into ResultatEtudiant values('129010D',5,2015, calcul_moyenneSem('129010D', 5, 2015));
 -- insert into ResultatEtudiant values('112771c',5,2015, calcul_moyenneSem('112771c', 5));
 -- insert into ResultatEtudiant values('133501k',5,2015, calcul_moyenneSem('133501k', 5));
 -- insert into ResultatEtudiant values('133641M',5,2015, calcul_moyenneSem('133641M', 5));

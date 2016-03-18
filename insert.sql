@@ -1,3 +1,8 @@
+-------------
+-- Matiere --
+-------------
+
+
 insert into Matiere values('X5I0010', 1, 14.5, 13, 8);
 insert into Matiere values('X5I0020', 1, 14.5, 13, 8);
 insert into Matiere values('X5I0030', 1, 14.5, 13, 8);
@@ -46,9 +51,11 @@ EXEC insertEnseignant('Piscetelli', 'David');
 EXEC insertEnseignant('Moizeau', 'Isabelle');
 EXEC insertEnseignant('Passard', 'Pierick');
 
+
 ------------------------------------
 -- Affectation Enseignant-Matiere --
 ------------------------------------
+
 
 --S5
 insert into ResponsableMatiere values('X5I0010', 2015, 'fRichoux');
@@ -126,6 +133,7 @@ insert into MatiereTdTp values('X6I0050', 2015, '601A', 'pSerrano', 'iMoizeau');
 insert into MatiereTdTp values('X6I0050', 2015, '601B', 'pSerrano', 'dPiscetelli');
 insert into MatiereTdTp values('X6I0050', 2015, '602C', 'pSerrano', 'dPiscetelli');
 insert into MatiereTdTp values('X6I0050', 2015, '602D', 'pSerrano', 'dPiscetelli');
+
 
 -------------
 -- Groupes --
