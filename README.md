@@ -19,7 +19,8 @@ Database representing University of Nantes behaviour.
 
 ###Vues : 
 - Notes pour chaque étudiant
-- Liste des élèves par prof et par cours
+- Liste des étudiants par prof et par cours
+- Liste des cours par étudiant
 - Nombre d’heure (CM, TD, TP et total) pour chaque cours
 - Bulletin de chaque étudiant.
 
