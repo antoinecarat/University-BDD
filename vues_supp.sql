@@ -1,3 +1,4 @@
+--Vue qui presente le bullentin des etudiants
 CREATE OR REPLACE VIEW Bulletins_etu AS
 	SELECT ne.annee, re.semestre, e.noEtu, e.nomEtu, e.preEtu, ne.matiere, nm.moyenneMat, calcul_moyenneMatPromo(ne.matiere, ne.annee) as MoyenneMatPromo, re.moyenneSem, calcul_moyenneSemPromo(re.semestre, ne.annee) as MoyenneSemPromo
 	FROM Etudiant e, NoteEtu ne, NoteMatiere nm, ResultatEtudiant re

@@ -2,7 +2,7 @@
 -- 					PROCEDURES					   --
 -----------------------------------------------------
 
-
+-- Procedure pour ajouter un etudiant
 create or replace procedure insertEtudiant(
 	noEtu_u Etudiant.noEtu%type,
 	nomEtu Etudiant.nomEtu%type,
@@ -22,7 +22,7 @@ begin
 end;
 /
 
-
+--Procedure pour ajouter un enseignant
 CREATE OR REPLACE PROCEDURE insertEnseignant(
 	nomResp CM.nomResp_CM%type,
 	preResp CM.preResp_CM%type) as
@@ -33,30 +33,7 @@ begin
 end;
 /
 
--- create or replace procedure insertCM(
--- 	nomResp_CM CM.nomResp_CM%type,
--- 	preResp_CM CM.preResp_CM%type) as
--- begin
--- 	insert into CM values(CONCAT(LOWER(SUBSTR(preResp_CM,1,1)),nomResp_CM), nomResp_CM, preResp_CM);
--- end;
--- /
-
--- create or replace procedure insertTD(
--- 	nomResp_TD TD.nomResp_TD%type,
--- 	preResp_TD TD.preResp_TD%type) as
--- begin
--- 	insert into TD values(CONCAT(LOWER(SUBSTR(preResp_TD,1,1)),nomResp_TD), nomResp_TD, preResp_TD);
--- end;
--- /
-
--- create or replace procedure insertTP(
--- 	nomResp_TP TP.nomResp_TP%type,
--- 	preResp_TP TP.preResp_TP%type) as
--- begin
--- 	insert into TP values(CONCAT(LOWER(SUBSTR(preResp_TP,1,1)),nomResp_TP), nomResp_TP, preResp_TP);
--- end;
--- /
-
+--procedure pour ajouter une note de CC
 create or replace procedure insertNoteCC(
 	noEtu_u Etudiant.noEtu%type,
 	annee_u NoteEtu.annee%type,
@@ -79,6 +56,7 @@ begin
 end;
 /
 
+--procedure pour ajouter une note d'examen
 create or replace procedure insertNoteExam(
 	noEtu_u Etudiant.noEtu%type,
 	annee_u NoteEtu.annee%type,
@@ -105,6 +83,7 @@ end;
 -- 					FUNCTIONS					   --
 -----------------------------------------------------
 
+--Fonction qui calcule la moyenne semstrielle d'un étudiant
 create or replace function calcul_moyenneSem(
 	noEtudiant IN ResultatEtudiant.noEtu%type,
 	semestre_etu IN ResultatEtudiant.semestre%type,
@@ -131,6 +110,7 @@ begin
 end;
 /
 
+--Fonction qui calcule le moyenne semestrielle de la promotion
 create or replace function calcul_moyenneSemPromo(
 	semestre_etu IN ResultatEtudiant.semestre%type,
 	annee_etu IN ResultatEtudiant.annee%type
@@ -154,6 +134,7 @@ begin
 end;
 /
 
+--Fonction qui calcule le moyenne d'une matière pour la promotion
 create or replace function calcul_moyenneMatPromo(
 	matiere_etu IN NoteEtu.matiere%type,
 	annee_etu IN NoteEtu.annee%type
