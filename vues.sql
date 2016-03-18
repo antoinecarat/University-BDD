@@ -16,3 +16,11 @@ CREATE OR REPLACE VIEW Liste_etu_matiere AS
 	AND g.matiere = rm.matiere and g.matiere = mt.matiere
 	AND g.noEtu = e.noEtu
   	ORDER BY g.annee ASC, rm.idResp_CM ASC, mt.idresp_TD ASC, mt.idResp_TP ASC, g.matiere ASC, g.groupe ASC, e.nomEtu ASC;
+
+  	CREATE OR REPLACE VIEW Liste_matiere_etu AS
+	SELECT DISTINCT g.annee, g.noEtu, e.nomEtu, e.preEtu, g.groupe, g.matiere, rm.idResp_CM, mt.idresp_TD, mt.idResp_TP
+	FROM ResponsableMatiere rm , MatiereTdTp mt, GroupeEtu g, Etudiant e
+	WHERE g.annee = rm.annee and g.annee = mt.annee 
+	AND g.matiere = rm.matiere and g.matiere = mt.matiere
+	AND g.noEtu = e.noEtu
+  	ORDER BY g.annee ASC, g.groupe ASC, e.nomEtu ASC, g.matiere ASC,rm.idResp_CM ASC, mt.idresp_TD ASC, mt.idResp_TP ASC;

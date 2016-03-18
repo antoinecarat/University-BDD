@@ -13,3 +13,4 @@ GRANT SELECT ON Liste_etu_matiere TO Univ_Enseignant;
 
 GRANT SELECT ON Nb_h_matiere TO Univ_Etudiant;
 GRANT SELECT ON Bulletins_etu TO Univ_Etudiant;
+GRANT SELECT ON Liste_matiere_etu TO Univ_Etudiant;
