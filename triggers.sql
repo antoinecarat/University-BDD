@@ -1,3 +1,4 @@
+--Trigger qui met à jour la moyenne dans la table noteMatiere à l'insertion d'une note d'un etudiant
 CREATE OR REPLACE TRIGGER moyenneMatiere AFTER INSERT OR UPDATE ON NoteEtu
 FOR EACH ROW
 Declare
@@ -16,7 +17,7 @@ BEGIN
 END;
 /
 
-
+--Trigger qui empeche de mettre une note à un etudiant si celui-ci n'assiste pas au cours
 CREATE OR REPLACE TRIGGER verifInscriptionEtuCours BEFORE INSERT OR UPDATE ON NoteEtu
 FOR EACH ROW
 Declare

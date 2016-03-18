@@ -1,4 +1,5 @@
 SET SERVEROUTPUT ON
+-- procedure qui permet d'afficher le bulletin semestriel d'un etudiant sur le terminal
 create or replace procedure bulletin_semestriel_etu(
 	semestre_etu  ResultatEtudiant.semestre%type,
 	annee_etu  ResultatEtudiant.annee%type,
@@ -14,7 +15,7 @@ begin
 end;
 /
 
-
+-- procedure qui permet d'afficher le bulletin annuel d'un etudiant sur le terminal
 create or replace procedure bulletin_annuel_etu(
 	annee_etu  ResultatEtudiant.annee%type,
 	noEtudiant  ResultatEtudiant.noEtu%type) as
