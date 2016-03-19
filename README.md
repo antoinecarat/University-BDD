@@ -1,7 +1,8 @@
 # University-BDD
 Database representing University of Nantes behaviour.
 
-You can test verifInscriptionEtuCours trigger by executing jeuxTests.sql.
+Install the database with some datas by executing main.sql
+You can test the check constraints and verifInscriptionEtuCours trigger by executing jeuxTests.sql.
 
 ## Database Composition :
 
