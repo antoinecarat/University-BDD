@@ -19,6 +19,21 @@ insert into Matiere values('X6I0050', 1, 12, 10, 11);
 insert into Matiere values('X6A0010', 0.3, 13, 9, 15);
 insert into Matiere values('X6I0100', 0.5, 11, 12, 9);
 
+
+-------------
+-- Groupes --
+-------------
+
+insert into GroupeCours values('501A', 5, 'L3-Info', 'Informatique');
+insert into GroupeCours values('501B', 5, 'L3-Info', 'Informatique');
+insert into GroupeCours values('502C', 5, 'L3-Info', 'Informatique');
+insert into GroupeCours values('502D', 5, 'L3-Info', 'Informatique');
+
+insert into GroupeCours values('601A', 6, 'L3-Info', 'Informatique');
+insert into GroupeCours values('601B', 6, 'L3-Info', 'Informatique');
+insert into GroupeCours values('602C', 6, 'L3-Info', 'Informatique');
+insert into GroupeCours values('602D', 6, 'L3-Info', 'Informatique');
+
 -----------------
 -- Enseignants --
 -----------------
@@ -135,16 +150,56 @@ insert into MatiereTdTp values('X6I0050', 2015, '602C', 'pSerrano', 'dPiscetelli
 insert into MatiereTdTp values('X6I0050', 2015, '602D', 'pSerrano', 'dPiscetelli');
 
 
--------------
--- Groupes --
--------------
+---------------
+-- Etudiants --
+---------------
 
-insert into GroupeCours values('501A', 5, 'L3-Info', 'Informatique');
-insert into GroupeCours values('501B', 5, 'L3-Info', 'Informatique');
-insert into GroupeCours values('502C', 5, 'L3-Info', 'Informatique');
-insert into GroupeCours values('502D', 5, 'L3-Info', 'Informatique');
+EXEC insertEtudiant('129010D','Carat','Antoine','502D',2015);
+EXEC insertEtudiant('112771c','Turrado','Leo','502D',2015);
+EXEC insertEtudiant('133501k','Grondin', 'Mathieu','501A',2015);
+EXEC insertEtudiant('133641M','Maestracci','Damien','501B',2015);
+EXEC insertEtudiant('134727s','Quemard','Mael','502C',2015);
 
-insert into GroupeCours values('601A', 6, 'L3-Info', 'Informatique');
-insert into GroupeCours values('601B', 6, 'L3-Info', 'Informatique');
-insert into GroupeCours values('602C', 6, 'L3-Info', 'Informatique');
-insert into GroupeCours values('602D', 6, 'L3-Info', 'Informatique');
+EXEC insertEtudiant('129010D','Carat','Antoine','601B',2015);
+EXEC insertEtudiant('112771c','Turrado','Leo','601B',2015);
+EXEC insertEtudiant('133501k','Grondin', 'Mathieu','601B',2015);
+EXEC insertEtudiant('133641M','Maestracci','Damien','601B',2015);
+EXEC insertEtudiant('134727s','Quemard','Mael','601B',2015);
+
+
+-----------
+-- Notes --
+-----------
+
+EXEC insertNoteCC('129010D', 2015, 'X5I0010', 13.88);
+EXEC insertNoteExam('129010D', 2015, 'X5I0010', 14.5);
+EXEC insertNoteCC('129010D', 2015, 'X5I0020', 5);
+EXEC insertNoteCC('129010D', 2015, 'X5I0030', 11.6);
+EXEC insertNoteExam('129010D', 2015, 'X5I0030', 6.5);
+EXEC insertNoteCC('129010D', 2015, 'X5I0040', 12.6);
+EXEC insertNoteExam('129010D', 2015, 'X5I0040', 10.5);
+EXEC insertNoteCC('129010D', 2015, 'X5I0050', 11.80);
+EXEC insertNoteExam('129010D', 2015, 'X5I0050', 8);
+EXEC insertNoteCC('129010D', 2015, 'X5A0010', 14);
+EXEC insertNoteExam('129010D', 2015, 'X5A0010', 17);
+EXEC insertNoteCC('129010D', 2015, 'X5T0280', 10);
+
+EXEC insertNoteCC('129010D', 2015, 'X6I0010', 16);
+EXEC insertNoteExam('129010D', 2015, 'X6I0010', 15);
+EXEC insertNoteCC('129010D', 2015, 'X6I0020', 4);
+EXEC insertNoteCC('129010D', 2015, 'X6I0030', 6);
+EXEC insertNoteExam('129010D', 2015, 'X6I0030', 12);
+EXEC insertNoteCC('129010D', 2015, 'X6I0040', 11);
+EXEC insertNoteExam('129010D', 2015, 'X6I0040', 13);
+EXEC insertNoteCC('129010D', 2015, 'X6I0050', 14);
+EXEC insertNoteExam('129010D', 2015, 'X6I0050', 13);
+EXEC insertNoteCC('129010D', 2015, 'X6A0010', 19);
+EXEC insertNoteExam('129010D', 2015, 'X6A0010', 18);
+
+----------------------
+-- ResultatEtudiant --
+----------------------
+
+insert into ResultatEtudiant values('129010D',5,2015, calcul_moyenneSem('129010D', 5, 2015));
+insert into ResultatEtudiant values('129010D',5,2015, calcul_moyenneSem('129010D', 6, 2015));
+

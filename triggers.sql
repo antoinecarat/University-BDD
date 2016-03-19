@@ -4,10 +4,8 @@ FOR EACH ROW
 Declare
 	moy number(4,2);
 	cMoy number;
-	cRes number;
 BEGIN	
 	IF :new.noteCC <> :old.noteCC OR :new.noteExam <> :old.noteExam THEN
-		SELECT count(*) INTO cRes FROM ResultatEtudiant WHERE :new.noEtu=noEtu;
 		moy := (:new.noteCC + :new.noteExam)/2;
 		SELECT count(*) INTO cMoy FROM NoteMatiere WHERE :new.noteCC=noteCC AND :new.noteExam=noteExam;
 		IF cMoy = 0 THEN

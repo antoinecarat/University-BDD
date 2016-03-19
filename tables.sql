@@ -96,5 +96,7 @@ CREATE TABLE GroupeEtu(
 	matiere varchar2(10),
 	annee number(4),
 	CONSTRAINT pk_GroupeEtu PRIMARY KEY (noEtu, groupe, matiere, annee),
-	CONSTRAINT fk_noEtuGE FOREIGN KEY (noEtu) REFERENCES Etudiant(noEtu)
+	CONSTRAINT fk_noEtuGE FOREIGN KEY (noEtu) REFERENCES Etudiant(noEtu),
+	CONSTRAINT fk_groupeGE FOREIGN KEY (groupe) REFERENCES GroupeCours(groupe),
+	CONSTRAINT fk_matiereGE FOREIGN KEY (matiere) REFERENCES Matiere(matiere)
 	);

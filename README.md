@@ -1,6 +1,8 @@
 # University-BDD
 Database representing University of Nantes behaviour.
 
+You can test verifInscriptionEtuCours trigger by executing jeuxTests.sql.
+
 ## Database Composition :
 
 ###Tables :
